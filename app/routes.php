@@ -28,7 +28,7 @@
 
 		////////////////////////////METIERS////////////////////////////////////////////////////////
 		['GET', '/metiers', 'metiers#metiers', 'metiers'],
-		['GET', '/formation', 'formation#metier', 'formation'],
+		///['GET', '/formations','metiers#metiers', 'metiers'],
 		['GET', '/atelier', 'atelier#metier', 'atelier'],
 
 		['GET', '/metierspage', 'metiers#ajaxmetiers', 'paginationsmetiers'],
