@@ -1,12 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Actu']) ?>
 
 <?php $this->start('main_content') ?>
-	<div id="mainphoto2">
-		<div class="row">
-			<p class="center white-text">Propulsé par la</p>
-			<img id="resp-logo" class="col s12"src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>" alt="" />
-		</div>
-	</div>
+
 	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos Actualités</h3>
 	<div class="container">
 		<ul class="pagination center">
