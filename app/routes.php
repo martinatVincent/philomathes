@@ -30,6 +30,8 @@
 		['GET', '/metiers', 'metiers#metiers', 'metiers'],
 		///['GET', '/formations','metiers#metiers', 'metiers'],
 		['GET', '/atelier', 'atelier#metier', 'atelier'],
+		//2 nouvelles routes a rajouter => formations pro et atelier loisirs . 2 nouveau manager appellant les tables correspondantes
+
 
 		['GET', '/metierspage', 'metiers#ajaxmetiers', 'paginationsmetiers'],
 		['GET', '/metiers/[a:section]/profilsall', 'profil#profilsAll', 'profilsall'],
@@ -40,6 +42,6 @@
 		['GET|POST', '/admin/deconnect', 'admin#deconnect', 'deconnect'],
 		['GET|POST', '/admin/reinipass', 'admin#reiniPass', 'reiniPass'],
 		['GET|POST', '/admin/reinipasstoken', 'admin#reiniPassTok', 'reiniPassTok'],
-    ['GET|POST', '/admin/insertprofil', 'admin#insertProfil', 'insertProfil'],
+    	['GET|POST', '/admin/insertprofil', 'admin#insertProfil', 'insertProfil'],
 		['GET|POST', '/admin/insertsection', 'admin#insertSection', 'insertSection'],
 	);
