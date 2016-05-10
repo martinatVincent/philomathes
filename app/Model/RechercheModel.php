@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class RechercheModel extends \W\Model\UserModel {
+class RechercheModel extends \W\Model\UsersModel {
 
 
     public function rechercheUsers($search){

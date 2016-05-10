@@ -27,11 +27,11 @@ class ProfilController extends Controller
 
       $userModel = new UsersModel();
       $params = [
-        'profil' => $usermodel->find($id),
-        'section' => $usermodel->getUserMetier($id),
+        'profil' => $userModel->find($id),
+        'section' => $userModel->getUserMetier($id),
         // récupérer la liste de projets de cet utilisateur
         // pour les afficher dans la vue profilUser
-        'projets' => $usermodel->getUserProjects($id)
+        'projets' => $userModel->getUserProjects($id)
       ];
       $this->show('profil/profilUser', $params);
 
@@ -40,7 +40,7 @@ class ProfilController extends Controller
     //Voir la liste des profils  selon un metier
     public function profilsAll($section)
     {
-      $metier = new MetierModel;
+      $metier = new MetierModel();
       /*Tableau es profils par section*/
       $num = 6;
       $page = 1;
@@ -60,7 +60,7 @@ class ProfilController extends Controller
     }
     public function ajaxprofils($section){
 
-      $profilsdb = new MetierModel;
+      $profilsdb = new MetierModel();
       $num = 6;
       $page = $_GET['page'];
       $start = ($page-1) * $num;
@@ -102,7 +102,7 @@ class ProfilController extends Controller
     //création de commentaire
     public function projectsPage($id){
 
-      $usermodel = new UsersModel();
+      $userModel = new UsersModel();
       $commentaireModel = new CommentaireModel();// methode Model qui va verifier mon tableau
       $post = array();
       $err = array();
@@ -170,7 +170,7 @@ class ProfilController extends Controller
 
     public function ajaxprojectspagepagin($id){
 
-        $commsdb = new CommentaireModel;
+        $commsdb = new CommentaireModel();
         $num = 6;
         $page = $_GET['page'];
         $start = ($page-1) * $num;
@@ -182,10 +182,10 @@ class ProfilController extends Controller
     public function contact($id)
     {
       $errors = array();
-      $user = new usermodel;
+      $user = new UsersModel();
       $app = getApp();
       $getuser = $user->find($id);
-      $mail = new PHPMailer;
+      $mail = new PHPMailer();
       $addy = $getuser['email'];
       $returnid = $getuser['id'];
       $params['id'] = $returnid;
@@ -249,8 +249,8 @@ class ProfilController extends Controller
         $dirUpload = 'photo';
         $mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
         $validForm =false;
-        $projectModel = new ProjetModel;
-        $photoModel = new PhotoModel;
+        $projectModel = new ProjetModel();
+        $photoModel = new PhotoModel();
 
 
         if(empty($_POST['project_title'])){
@@ -313,10 +313,10 @@ class ProfilController extends Controller
     {
         $this->allowTo(['user','Admin']);
         $login = new AuthentificationModel();
-        $usermodel = new usermodel;
+        $userModel = new UsersModel();
         $infosUser = $this->getUser();
-        $projectModel = new ProjetModel;
-        $photoModel = new PhotoModel;
+        $projectModel = new ProjetModel();
+        $photoModel = new PhotoModel();
         $errors = array();
         $params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
         // Faire vérification des champs ICI
@@ -355,7 +355,7 @@ class ProfilController extends Controller
             // il n'y a pas d'erreurs,  inserer l'utilisateur a bien rentré en bdd :
             if(count($errors) == 0){
 
-              $usermodel->update([
+              $userModel->update([
                 'nom'               => $_POST['nom'],
                 'prenom'            => $_POST['prenom'],
                 'email'             => $_POST['email'],
@@ -436,7 +436,7 @@ class ProfilController extends Controller
           }
         }
 
-        $params['projets'] = $usermodel->getUserProjects($infosUser['id']);
+        $params['projets'] = $userModel->getUserProjects($infosUser['id']);
         $this->show('profil/updatesprofil', $params);
       }
 
@@ -445,7 +445,7 @@ class ProfilController extends Controller
 
       $this->allowTo(['user','Admin']);
       $login = new AuthentificationModel();
-      $usermodel = new usermodel;
+      $userModel = new UsersModel();
       $infosUser = $this->getUser();
       $mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png','image/gif');
       $errors =[];
@@ -481,7 +481,7 @@ class ProfilController extends Controller
           $params['picUrl'] = $_SERVER['REDIRECT_W_BASE'].'/assets/'.$data['photo'];
 
           //on met à jour la bdd
-          $usermodel->update($data, $infosUser['id']);
+          $userModel->update($data, $infosUser['id']);
           $login->refreshUser();
           $validForm =true;
         }
@@ -495,7 +495,7 @@ class ProfilController extends Controller
 
       $this->allowTo(['user','Admin']);
       $login = new AuthentificationModel();
-      $projetsModel = new usermodel;
+      $projetsModel = new UsersModel;
       $infosUser = $this->getUser();
       $mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png','image/gif');
       $errors =[];

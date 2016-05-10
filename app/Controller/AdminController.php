@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use \Model\BlogModel;
 use \W\Security\AuthentificationModel;
 use \W\Model\UsersModel;
-use \Model\MetierModel;
+use \Model\MetiersModel;
 use \PHPMailer;
 use \config;
 
@@ -16,7 +16,7 @@ class AdminController extends Controller
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();
 		$userModel = new UsersModel;
-		$metiers = new MetierModel();
+		$metiers = new MetiersModel();
 		$toutmetiers = $metiers->findAll();
 		$errors = array();
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
@@ -62,7 +62,7 @@ class AdminController extends Controller
 	public function insertSection(){
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();
-		$MetierModel = new MetierModel;
+		$MetierModel = new MetiersModel();
 		$errors = array();
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI

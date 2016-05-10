@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class ProjetModel extends \W\Model\UserModel {
+class ProjetModel extends \W\Model\UsersModel {
 
     public function getProjectPhotos($id){
 

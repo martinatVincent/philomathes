@@ -29,15 +29,15 @@ class UsersModel extends Model
 
 		$app = getApp();
 
-		$sql = 'SELECT * FROM ' . $this->table . 
-			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' . 
+		$sql = 'SELECT * FROM ' . $this->table .
+			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' .
 			   ' OR ' . $app->getConfig('security_email_property') . ' = :email LIMIT 1';
 
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':username', $usernameOrEmail);
 		$sth->bindValue(':email', $usernameOrEmail);
-		
+
 		if($sth->execute()){
 			$foundUser = $sth->fetch();
 			if($foundUser){
@@ -99,4 +99,41 @@ class UsersModel extends Model
 
 	    return false;
 	}
+
+
+	//////////////////////a part///////////////////////////
+
+
+		public function getUserMetier($id) {
+					$sql = "SELECT section FROM metiers m LEFT JOIN users u ON u.id_metier = m.id WHERE u.id = :id";
+					$sth = $this->dbh->prepare($sql);
+					$sth->bindValue(":id", $id);
+					$sth->execute();
+
+					return $sth->fetchColumn();
+		}
+
+		public function getUserProjects($id) {
+			if (!is_numeric($id)){
+				return false;
+			}
+
+			$sql = "SELECT * FROM projets WHERE id_user = :id";
+			$sth = $this->dbh->prepare($sql);
+			$sth->bindValue(":id", $id);
+			$sth->execute();
+
+			$projets = $sth->fetchAll();
+
+			foreach ($projets as &$projet) {
+				$sql = "SELECT * FROM photos WHERE id_projet = :id";
+				$sth = $this->dbh->prepare($sql);
+				$sth->bindValue(":id", $projet['id']);
+				$sth->execute();
+
+				$projet['photos'] = $sth->fetchAll();
+			}
+			return $projets;
+		}
+
 }

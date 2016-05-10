@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class MetierModel extends \W\Model\UsersModel {
+class MetiersModel extends \W\Model\UsersModel {
 
   public function findMetier($section, $orderBy = "", $limit = null, $offset = null)
   {

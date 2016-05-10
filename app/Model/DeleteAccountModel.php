@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class DeleteAccountModel extends \W\Model\UserModel {
+class DeleteAccountModel extends \W\Model\UsersModel {
 
 
     public function deleteAll($id){
