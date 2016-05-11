@@ -40,7 +40,7 @@
 		Organisme de formation et d’actions culturelles Bordeaux. Association pour la promotion, la valorisation et la diffusion des sciences, lettres, arts et techniques Bordeaux et en Aquitaine. Ses principaux moyens d’action sont la formation permanente, et les conférences, débats, rencontres et expositions.
 	</p>
 	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Agenda de la philomathique</h3>
-	<iframe id="agenda"src="https://calendar.google.com/calendar/embed?src=lb6dfpq90731c4nlic5ohr6t0o%40group.calendar.google.com&ctz=Europe/Paris" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 </div>
 <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos sociétaire</h3>
 <div class="container">

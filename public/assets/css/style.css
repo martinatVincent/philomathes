@@ -831,3 +831,15 @@ h6.nameProject{
 /***************** stop :RESPONSIVE CONDITION **************/
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * PART : END CGU page*/
+
+										/* ######## */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * PART : START HOME */
+div.slider{
+	height: 650px !important;
+}
+ul.slides{
+	height: 100% !important;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * PART : END HOME */
