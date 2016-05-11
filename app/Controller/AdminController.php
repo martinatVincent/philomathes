@@ -59,10 +59,18 @@ class AdminController extends Controller
 		$params['section'] = $toutmetiers;
 		$this->show('admin/insertprofil', $params);
 	}
+
+
+
+
+
+	////////////////////////////////////////////////////////////
+	//INSERER METIER => FORMATION + ATELIER
+
 	public function insertSection(){
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();
-		$MetierModel = new MetiersModel();
+		$MetiersModel = new MetiersModel();
 		$errors = array();
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
@@ -87,7 +95,7 @@ class AdminController extends Controller
 
 			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
 			if(count($errors) == 0){
-				$MetierModel->insert([
+				$MetiersModel->insert([
 					'section' 	  	=> $_POST['section'],
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
@@ -105,6 +113,13 @@ class AdminController extends Controller
 
 		$this->show('admin/insertSection', $params);
 	}
+
+	////////////////////////////////////////////////////////////
+
+
+
+
+
 	public function connect()
 	{
 		$userModel = new UsersModel();
@@ -163,7 +178,7 @@ class AdminController extends Controller
 	public function reiniPass()
 	{
 		$login = new AuthentificationModel();
-		$userModel = new UserModel;
+		$userModel = new UsersModel;
 		$errors = array();
 		$mail = new PHPMailer;
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
