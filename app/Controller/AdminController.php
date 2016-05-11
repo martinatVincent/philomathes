@@ -7,6 +7,8 @@ use \Model\BlogModel;
 use \W\Security\AuthentificationModel;
 use \W\Model\UsersModel;
 use \Model\MetiersModel;
+use \Model\FormationsModel;
+use \Model\AteliersModel;
 use \PHPMailer;
 use \config;
 
@@ -67,10 +69,67 @@ class AdminController extends Controller
 	////////////////////////////////////////////////////////////
 	//INSERER METIER => FORMATION + ATELIER
 
-	public function insertSection(){
+	public function insertFormations(){
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();
-		$MetiersModel = new MetiersModel();
+		$FormationsModel = new FormationsModel();
+		$errors = array();
+		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
+		// Faire vérification des champs ICI
+		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
+		$dirUpload = 'photo/section';
+		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
+
+		if(!empty($_POST)){
+			// Faire vérification des champs ICI
+			if(empty($_POST['alias'])){
+				$errors[] = 'l alias est vide';
+			}
+			if(empty($_POST['niveau'])){
+				$errors[] = 'le niveau est vide';
+			}
+			if(empty($_POST['description'])){
+				$errors[] = 'la description est vide';
+			}
+			if(empty($_POST['section'])){
+				$errors[] = 'la section est vide';
+			}
+			if(empty($_POST['dates'])){
+				$errors[] = 'il n\'y a pas de session';
+			}
+			if(empty($_POST['photo'])){
+				$errors[] = 'veuiller entrer une photo';
+			}
+
+			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
+			if(count($errors) == 0){
+				$FormationsModel->insert([
+					'section' 	  	=> $_POST['section'],
+					'niveau'		=> $_POST['niveau'],
+					'alias' 		=> $_POST['alias'],
+					'description' 	=> $_POST['description'],
+					'dates'		=> $_POST['dates'],
+					'photo' 	    => $_POST['photo'],
+				]);
+
+				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
+			}
+			// sinon on affiche les erreurs:
+			else{
+				$params['errors'] = $errors;
+			}
+
+		}
+
+		$this->show('admin/insertSection', $params);
+	}
+
+
+
+	public function insertAteliers(){
+		$this->allowTo(['Admin']);
+		$login = new AuthentificationModel();
+		$AteliersModel = new AteliersModel();
 		$errors = array();
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
@@ -89,20 +148,24 @@ class AdminController extends Controller
 			if(empty($_POST['section'])){
 				$errors[] = 'la section est vide';
 			}
+			if(empty($_POST['dates'])){
+				$errors[] = 'il n\'y a pas de session';
+			}
 			if(empty($_POST['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
 
 			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
 			if(count($errors) == 0){
-				$MetiersModel->insert([
+				$AteliersModel->insert([
 					'section' 	  	=> $_POST['section'],
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
+					'dates'		=> $_POST['dates'],
 					'photo' 	    => $_POST['photo'],
 				]);
 
-				$params['success'] = 'votre nouvelle section à bien été rajouté !';
+				$params['success'] = 'votre nouvelle atelier à bien été rajouté !';
 			}
 			// sinon on affiche les erreurs:
 			else{
@@ -113,6 +176,9 @@ class AdminController extends Controller
 
 		$this->show('admin/insertSection', $params);
 	}
+
+
+
 
 	////////////////////////////////////////////////////////////
 

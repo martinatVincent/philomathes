@@ -42,6 +42,9 @@
 		['GET|POST', '/admin/deconnect', 'admin#deconnect', 'deconnect'],
 		['GET|POST', '/admin/reinipass', 'admin#reiniPass', 'reiniPass'],
 		['GET|POST', '/admin/reinipasstoken', 'admin#reiniPassTok', 'reiniPassTok'],
-    	['GET|POST', '/admin/insertprofil', 'admin#insertProfil', 'insertProfil'],
-		['GET|POST', '/admin/insertsection', 'admin#insertSection', 'insertSection'],
+    ['GET|POST', '/admin/insertprofil', 'admin#insertProfil', 'insertProfil'],
+
+		['GET', '/admin/insertsection', 'admin#insertFormations', 'insertSection'],
+		['GET|POST', '/admin/insertformations', 'admin#insertFormations', 'insertFormations'],
+		['GET|POST', '/admin/insertateliers', 'admin#insertAteliers', 'insertAteliers'],
 	);
