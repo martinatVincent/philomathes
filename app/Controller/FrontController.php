@@ -7,6 +7,8 @@ use \config;
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \Model\RechercheModel;
+use \Model\MetiersModel;
+
 
 class FrontController extends Controller
 {
@@ -20,6 +22,32 @@ class FrontController extends Controller
 		$profilselect = $profils->findAll('date_update', 'ASC', 6);
 		$params['users'] = $profilselect;
 		$this->show('front/index', $params);
+	}
+	public function metiers(){
+
+		$metiersdb = new MetiersModel;
+		$num = 6;
+		$page = 1;
+		$start = ($page-1) * $num;
+		$params['page']  = $page;
+		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+		$params['metiers'] = $metiers;
+		$allmetiers = $metiersdb->findAll('section', "ASC");
+		$countmetiers = count($allmetiers) + 1 ;
+		$totalpages = ceil($countmetiers/$num);
+		$params['totalpages'] = $totalpages;
+
+		$this->show('front/index', $params);
+	}
+
+	public function ajaxmetiers(){
+
+		$metiersdb = new MetiersModel;
+		$num = 6;
+		$page = $_GET['page'];
+		$start = ($page-1) * $num;
+		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+		$this->showJson($metiers);
 	}
 	public function conditions()
 	{
@@ -84,7 +112,7 @@ class FrontController extends Controller
 
 		$this->show('front/contactAdmin', $params);
 	}
-	
+
 	public function recherche()
 	{
 		$params['resultatUser'] = [];
@@ -127,4 +155,5 @@ class FrontController extends Controller
 
 		$this->show('front/recherche', $params);
 	}
+
 }

@@ -102,7 +102,6 @@
 				<li><a href="<?= $this->url('actus') ?>"</a>Actualités</li>
 				<li><a href="<?= $this->url('metiers') ?>">Formation</a></li>
 				<li><a href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
-				<?php if(isset($_SESSION['user']['id'])): ?><li><a href="<?= $this->url('allprofiles')  ?> ">Les Philomathes</a></li><?php endif;?>
 				<li><a class="white-text" href="<?= $this->url('contactAdmin') ?>">Contact<a/></li>
 				<li><a href="#"</a>Philo connect</li>
 				<?php if(!$w_user) :?><li><a href="<?= $this->url('connect') ?>">Espace Admin</a></li><?php endif;?>

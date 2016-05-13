@@ -39,58 +39,42 @@
 	<p class="grey lighten-4 z-depth-1 center-align teal-text text-lighten-2">
 		Organisme de formation et d’actions culturelles Bordeaux. Association pour la promotion, la valorisation et la diffusion des sciences, lettres, arts et techniques Bordeaux et en Aquitaine. Ses principaux moyens d’action sont la formation permanente, et les conférences, débats, rencontres et expositions.
 	</p>
-	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Agenda de la philomathique</h3>
-
 </div>
-<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos sociétaire</h3>
+<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Les metiers</h3>
 <div class="container">
-	<div class="slider louil z-depth-1 shadow-effect" style="margin-bottom:5%;">
-	    <ul class="slides louil" >
-				<?php foreach ($users as $use): ?>
-					<li class="row">
-						<img class="col l5" src='<?= $this->assetUrl($use['photo']);?>'>
-						<div class="grey lighten-4 z-depth-1 col l7 slida valign-wrapper">
-							<div class="valign">
-								<h3 class="teal-text text-lighten-2"><?= ucfirst($use['nom']).' '.ucfirst($use['prenom']);?></h3>
-								<?php if (strlen($use['description']) > 50): ?>
-
-									<h5 class="light teal-text text-lighten-2"><?=chunk_split($use['description'])?></h5>
-
-								<?php else: ?>
-									<h5 class="light black-text text-lighten-3"><?= $use['description'];?></h5>
-								<?php endif; ?>
-					</div>
-				</div>
-				</li>
-			<?php endforeach; ?>
-	    </ul>
-	  </div>
-</div>
-<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos metiers</h3>
-<div class="container">
-	<div class="slider louil z-depth-1 shadow-effect" style="margin-bottom:5%;">
-	    <ul class="slides louil" >
-				<?php foreach ($users as $use): ?>
-					<li class="row">
-						<img class="col l5" src='<?= $this->assetUrl($use['photo']);?>'>
-						<div class="grey lighten-4 z-depth-1 col l7 slida valign-wrapper">
-							<div class="valign">
-								<h3 class="teal-text text-lighten-2"><?= ucfirst($use['nom']).' '.ucfirst($use['prenom']);?></h3>
-								<?php if (strlen($use['description']) > 50): ?>
-
-									<h5 class="light teal-text text-lighten-2"><?=chunk_split($use['description'])?></h5>
-
-								<?php else: ?>
-									<h5 class="light black-text text-lighten-3"><?= $use['description'];?></h5>
-								<?php endif; ?>
-					</div>
-				</div>
-				</li>
-			<?php endforeach; ?>
-	    </ul>
-	  </div>
+  <ul class="pagination center">
+    <?php for($i=1; $i<=$totalpages; $i++):?>
+      <li class="waves-effect btn">
+        <a class="paginations paginmet white-text" href="<?= $i?>"><?= $i?></a>
+      </li>
+    <?php endfor;?>
+  </ul>
 </div>
 
-
-
+<section id="allworks" class="row section container">
+  <?php foreach ($metiers as $met):?>
+      <article class="col s12 m6 l4">
+        <div class="grey lighten-4 z-depth-1">
+          <div class=" contain-img">
+            <img class="hov-zoom" src="<?= $met['photo']?>" alt="">
+            <div class="text-box">
+              <h2 class="lighten-4">Voir les profils</h2>
+              <a class="link-metier" href="metiers/<?= $met['alias']?>/profilsall"></a>
+            </div>
+          </div>
+          <div class="text-works center">
+            <h6><?= $met['section']?></h6>
+            <p class=""><?= mb_substr($met['description'], 0 , 400 ).'...'?></p>
+          </div>
+        </div>
+      </article>
+  <?php endforeach;?>
+</section>
 <?php $this->stop('main_content') ?>
+
+<?php $this->start('script') ?>
+<script type="text/javascript">
+  $('#mySwitch').prop('checked')
+  var pageUrl = '<?= $this->url('paginationsmetiers') ?>';
+</script>
+<?php $this->stop('script') ?>

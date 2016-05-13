@@ -2,10 +2,13 @@
 
 	$w_routes = array(
 		///////////////////////////FRONT/////////////////////////////////////////////////////////////
-		['GET', '/', 'Front#index', 'index'],
+		['GET', '/index', 'Front#metiers', 'index'],
+
 		['GET', '/conditions', 'Front#conditions', 'conditions'],
 		['GET|POST', '/contactadmin', 'Front#contactAdmin', 'contactAdmin'],
 		['GET|POST', '/recherche', 'Front#recherche', 'recherche'],
+
+
 		////////////////////////////PROFIL////////////////////////////////////////////////////////
 		['GET', '/profil/profiluser/[:id]', 'Profil#profilUser', 'profiluser'],
 		['GET', '/profil/allprofiles', 'Profil#allprofiles', 'allprofiles'],
@@ -31,9 +34,7 @@
 		///['GET', '/formations','metiers#metiers', 'metiers'],
 		['GET', '/atelier', 'atelier#metier', 'atelier'],
 		//2 nouvelles routes a rajouter => formations pro et atelier loisirs . 2 nouveau manager appellant les tables correspondantes
-
-
-		['GET', '/metierspage', 'metiers#ajaxmetiers', 'paginationsmetiers'],
+		['GET|POST', '/metierspage', 'metiers#ajaxmetiers', 'paginationsmetiers'],
 		['GET', '/metiers/[a:section]/profilsall', 'profil#profilsAll', 'profilsall'],
 		['GET', '/metiers/[a:section]/profilsall/pagination', 'profil#ajaxprofils', 'paginationprofils'],
 

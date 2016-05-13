@@ -5,7 +5,7 @@ namespace Controller;
 use \PHPMailer;
 use \config;
 use \W\Controller\Controller;
-use Model\MetierModel;
+use Model\MetiersModel;
 use Model\DeleteAccountModel;
 use \W\Model\UsersModel;
 use \W\Security\AuthentificationModel;
@@ -40,7 +40,7 @@ class ProfilController extends Controller
     //Voir la liste des profils  selon un metier
     public function profilsAll($section)
     {
-      $metier = new MetierModel();
+      $metier = new MetiersModel();
       /*Tableau es profils par section*/
       $num = 6;
       $page = 1;
