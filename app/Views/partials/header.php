@@ -12,7 +12,10 @@
 	  			<li><a href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a></li>
 	  			<?php endif;?>
 	  			<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertSection') ?>">Entrer un nouveau metier</a></li>
+	  			<li><a href="<?= $this->url('insertSection') ?>">Entrer une nouvelle formation/atelier</a></li>
+	  			<?php endif;?>
+					<?php if($w_user['role']=='Admin'):?>
+	  			<li><a href="<?= $this->url('insertMetiers') ?>">Entrer un nouveau metier</a></li>
 	  			<?php endif;?>
 					<?php if($w_user['role']=='Admin'):?>
 	  			<li><a href="<?= $this->url('insertActus') ?>">Entrer un nouvel article</a></li>

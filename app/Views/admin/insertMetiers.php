@@ -1,7 +1,7 @@
-<?php $this->layout('layout',['title' => 'Insertion Section']) ?>
+<?php $this->layout('layout',['title' => 'Insertion Metiers']) ?>
 <?php $this->start('main_content') ?>
 <div class="container center">
-  <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer un nouvel atelier</h3>
+  <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer un nouveau metier</h3>
   <div class="row">
 
       <form method="POST" class="col s12 m12 l6 offset-l3" >
@@ -10,18 +10,14 @@
         </div>
         <div class="input-field">
           <i class="material-icons prefix">subtitles</i>
-          <label for="section">Intitulé atelier</label>
+          <label for="section">Intitulé métier</label>
           <input type="text" name="section" placeholder="section">
         </div>
         <div class="input-field">
           <i class="material-icons prefix">receipt</i>
-          <label for="description">description atelier</label>
+          <label for="description">description métier</label>
           <textarea name="description" class="materialize-textarea" placeholder="Votre description"></textarea>
         </div>
-        <div class="input-field">
-          <i class="material-icons prefix">receipt</i>
-          <label for="dates">Dates sessions</label>
-          <textarea name="dates" class="materialize-textarea" placeholder="ex: 11/01/2016-18/05/2016"></textarea>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">youtube_searched_for</i>

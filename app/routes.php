@@ -45,9 +45,11 @@
 		['GET|POST', '/admin/reinipasstoken', 'admin#reiniPassTok', 'reiniPassTok'],
     ['GET|POST', '/admin/insertprofil', 'admin#insertProfil', 'insertProfil'],
 
-		['GET', '/admin/insertsection', 'admin#insertFormations', 'insertSection'],
+		['GET', '/admin/insertsection', 'admin#test', 'insertSection'],
 		['GET|POST', '/admin/insertformations', 'admin#insertFormations', 'insertFormations'],
 		['GET|POST', '/admin/insertateliers', 'admin#insertAteliers', 'insertAteliers'],
+
+		['GET|POST', '/admin/insertmetiers', 'admin#insertMetiers', 'insertMetiers'],
 
 		['GET|POST', '/admin/insertactus', 'admin#insertActus', 'insertActus'],
 	);

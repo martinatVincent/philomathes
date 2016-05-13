@@ -64,11 +64,63 @@ class AdminController extends Controller
 	}
 
 
-
+	public function test(){
+		$this->show('admin/insertSection');
+	}
 
 
 	////////////////////////////////////////////////////////////
 	//INSERER METIER => FORMATION + ATELIER
+	public function insertMetiers(){
+		$this->allowTo(['Admin']);
+		$login = new AuthentificationModel();
+		$MetiersModel = new MetiersModel();
+		$errors = array();
+		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
+		// Faire vérification des champs ICI
+		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
+		$dirUpload = 'photo/section';
+		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
+
+		if(!empty($_POST)){
+			// Faire vérification des champs ICI
+			if(empty($_POST['alias'])){
+				$errors[] = 'l alias est vide';
+			}
+			if(empty($_POST['description'])){
+				$errors[] = 'la description est vide';
+			}
+			if(empty($_POST['section'])){
+				$errors[] = 'la section est vide';
+			}
+			if(empty($_POST['photo'])){
+				$errors[] = 'veuiller entrer une photo';
+			}
+
+			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
+			if(count($errors) == 0){
+				$MetiersModel->insert([
+					'section' 	  	=> $_POST['section'],
+					'alias' 		=> $_POST['alias'],
+					'description' 	=> $_POST['description'],
+					'photo' 	    => $_POST['photo'],
+				]);
+
+				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
+			}
+			// sinon on affiche les erreurs:
+			else{
+				$params['errors'] = $errors;
+			}
+
+		}
+
+		$this->show('admin/insertMetiers', $params);
+	}
+
+
+
+
 
 	public function insertFormations(){
 		$this->allowTo(['Admin']);
@@ -122,7 +174,7 @@ class AdminController extends Controller
 
 		}
 
-		$this->show('admin/insertSection', $params);
+		$this->show('admin/insertFormations', $params);
 	}
 
 
@@ -175,7 +227,7 @@ class AdminController extends Controller
 
 		}
 
-		$this->show('admin/insertSection', $params);
+		$this->show('admin/insertAteliers', $params);
 	}
 
 
