@@ -14,6 +14,9 @@
 	  			<?php if($w_user['role']=='Admin'):?>
 	  			<li><a href="<?= $this->url('insertSection') ?>">Entrer un nouveau metier</a></li>
 	  			<?php endif;?>
+					<?php if($w_user['role']=='Admin'):?>
+	  			<li><a href="<?= $this->url('insertActus') ?>">Entrer un nouvel article</a></li>
+	  			<?php endif;?>
 				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
 			</ul>
 			<ul id="dropdown2" class="dropdown-content">

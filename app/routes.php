@@ -48,4 +48,6 @@
 		['GET', '/admin/insertsection', 'admin#insertFormations', 'insertSection'],
 		['GET|POST', '/admin/insertformations', 'admin#insertFormations', 'insertFormations'],
 		['GET|POST', '/admin/insertateliers', 'admin#insertAteliers', 'insertAteliers'],
+
+		['GET|POST', '/admin/insertactus', 'admin#insertActus', 'insertActus'],
 	);

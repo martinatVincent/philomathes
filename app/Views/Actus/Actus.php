@@ -22,7 +22,7 @@
 							</div>
 						</div>
 						<div class="text-works center">
-							<h6><?= $act['section']?></h6>
+							<h6><?= $act['titre']?></h6>
 							<p class=""><?= mb_substr($act['description'], 0 , 400 ).'...'?></p>
 						</div>
 					</div>

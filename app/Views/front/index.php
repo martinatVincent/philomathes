@@ -40,7 +40,7 @@
 		Organisme de formation et d’actions culturelles Bordeaux. Association pour la promotion, la valorisation et la diffusion des sciences, lettres, arts et techniques Bordeaux et en Aquitaine. Ses principaux moyens d’action sont la formation permanente, et les conférences, débats, rencontres et expositions.
 	</p>
 </div>
-<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Les metiers</h3>
+<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Les métiers</h3>
 <div class="container">
   <ul class="pagination center">
     <?php for($i=1; $i<=$totalpages; $i++):?>
