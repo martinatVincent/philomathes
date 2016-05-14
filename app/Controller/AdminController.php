@@ -244,7 +244,7 @@ class AdminController extends Controller
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
 		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
-		$dirUpload = 'photo/section';
+		$dirUpload = 'assets/img/';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
 		if(!empty($_POST)){
@@ -256,9 +256,6 @@ class AdminController extends Controller
 			if(empty($_POST['titre'])){
 				$errors[] = 'le titre est vide';
 			}
-			if(empty($_POST['date'])){
-				$errors[] = 'il n\'y a pas de date';
-			}
 			if(empty($_POST['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
@@ -267,7 +264,7 @@ class AdminController extends Controller
 			if(count($errors) == 0){
 				$ActusModel->insert([
 					'titre' 	  	=> $_POST['titre'],
-					'date'				=> $_POST['date'],
+					'date'				=> date('Y-m-d'),
 					'photo' 	    => $_POST['photo'],
 					'description' => $_POST['description'],
 				]);
