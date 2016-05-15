@@ -105,13 +105,12 @@
 					<i class="material-icons search">search</i>
 					</a>
 				</li>
-				<li><a href="<?= $this->url('actus') ?>"</a>Actualités</li>
-				<li><a href="<?= $this->url('metiers') ?>">Formation</a></li>
-				<li><a href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
-				<li><a class="white-text" href="<?= $this->url('contactAdmin') ?>">Contact<a/></li>
-				<li><a href="#"</a>Philo connect</li>
-				<?php if(!$w_user) :?><li><a href="<?= $this->url('connect') ?>">Espace Admin</a></li><?php endif;?>
-				<?php if($w_user) :?><li><a href="<?= $this->url('deconnect') ?>">Se deconnecter</a></li><?php endif;?>
+				<li><a class="btn btn-5"href="<?= $this->url('actus') ?>">Actualités</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('metiers') ?>">Formation</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
+				<li><a class="btn btn-5" href="#">Philo connect</a></li>
+				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Espace Admin</a></li><?php endif;?>
+				<?php if($w_user) :?><li><a class="btn btn-5" href="<?= $this->url('deconnect') ?>">Se deconnecter</a></li><?php endif;?>
 				<?php if($w_user)  :?>
 					<li>
 						<a href="#" class="col l6 dropdown-button" data-beloworigin="true" data-activates="dropdown1" id="loginfo">
