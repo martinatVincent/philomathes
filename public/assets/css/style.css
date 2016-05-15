@@ -843,3 +843,21 @@ ul.slides{
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * PART : END HOME */
+/******************BUTTON INSERT SECTION***************************************/
+#btn-form a{
+	color: white;
+	font-size: 1.5em
+}
+#btn-att a{
+	color: white;
+	font-size: 1.5em;
+}
+#btn-form{
+	width: 40%;
+	margin-top: 10%;
+	margin-right:5%;
+}
+#btn-att{
+	width: 40%;
+	margin-top: 10%;
+}
