@@ -18,7 +18,7 @@
 	  			<li><a href="<?= $this->url('insertMetiers') ?>">Entrer un nouveau metier</a></li>
 	  			<?php endif;?>
 					<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertActus') ?>">Entrer un nouvel article</a></li>
+	  			<li><a href="<?= $this->url('insertActus') ?>">Entrer une nouvelle actualité</a></li>
 	  			<?php endif;?>
 				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
 			</ul>
