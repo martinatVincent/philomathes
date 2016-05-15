@@ -15,7 +15,7 @@
 				<form id="upload" action="<?= $this->url('updatePhoto') ?>" method="POST" enctype="multipart/form-data">
 					<div class="file-field input-field">
 						<div class="btn btn-add">
-							<span class="add">photo </span>
+							<span class="add">photo</span>
 							<input type="file"  id="photo" name="photo">
 						</div>
 						<div class="file-path-wrapper">
