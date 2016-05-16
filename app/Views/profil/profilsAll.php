@@ -18,7 +18,7 @@
 		</ul>
 	</div>
 	<section id="allworks" class="row section container">
-	<!-- les articles ne doivent être cliquables que si il y a du contenu généré(voir avec js) -->
+	<!--  les articles ne doivent être cliquables que si il y a du contenu généré(voir avec js)  -->
 		<?php foreach ($users as $use):?>
 			<article class="col s12 m6 l4">
 				<div class="grey lighten-4 z-depth-1">
@@ -31,7 +31,7 @@
 	          <?php endif; ?>
 						<div class="text-box ">
 							<h2>Visiter le Profil</h2>
-							<a class="link-metier" href="<?= $this->url('profiluser')?>"></a>
+							<a class="link-metier" href="<?= $this->url('/profiluser')?>"></a>
 						</div>
 					</div>
 					<div class="text-works center">

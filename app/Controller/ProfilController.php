@@ -30,7 +30,7 @@ class ProfilController extends Controller
         'profil' => $userModel->find($id),
         'section' => $userModel->getUserMetier($id),
         // récupérer la liste de projets de cet utilisateur
-        // pour les afficher dans la vue profilUser
+        // pour les afficher dans la vue profilUser 
         'projets' => $userModel->getUserProjects($id)
       ];
       $this->show('profil/profilUser', $params);

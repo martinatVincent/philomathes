@@ -4,7 +4,7 @@ $('.slider').height(H-40);});
 $(".button-collapse").sideNav({  edge: 'right'});
 $(document).ready(function(){
     $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      accordion : false // philo_unity A setting that changes philomathes the collapsible behavior to expandable instead of the default accordion style
     });
 });
 $('select').material_select();
@@ -55,10 +55,10 @@ $(function(){
                 $('#allworks').empty();
                 for (m in reponse) {
                   if (reponse[m].photo.length == 0) {
-                    var img = '/philo_unity/public/assets/avatar/generic-avatar.png';
+                    var img = '/philomathes/public/assets/avatar/generic-avatar.png';
                   }
                   if (reponse[m].photo.length !== 0) {
-                    var img = '/philo_unity/public/assets/'+reponse[m].photo;
+                    var img = '/philomathes/public/assets/'+reponse[m].photo;
                   }
                     var htmlProfils = $('<article>')
                     .addClass('col')
@@ -73,7 +73,7 @@ $(function(){
                             .append($('<img>').attr('src', img).addClass('photo-work').addClass('responsive-img').addClass('hov-zoom'))
                             .append($('<div>').addClass('text-box')
                             .append($('<h2>').text('Visiter le Profil').addClass('lighten-4'))
-                            .append($('<a>').attr('href',  '/philo_unity/public/profil/profiluser/'+reponse[m].id).addClass('link-metier'))))
+                            .append($('<a>').attr('href',  '/philomathes/public/profil/profiluser/'+reponse[m].id).addClass('link-metier'))))
                         .append($('<div>').addClass('text-works')
                         .addClass('center')
                             .append($('<h6>').text(reponse[m].prenom+' '+reponse[m].nom))
@@ -113,7 +113,7 @@ $(function(){
                             .append($('<img>').attr('src', reponse[m].photo).addClass('hov-zoom'))
                             .append($('<div>').addClass('text-box')
                             .append($('<h2>').text('Voir les profils').addClass('lighten-4'))
-                        .append($('<a>').attr('href', '/philo_unity/public/metiers/'+reponse[m].alias+'/profilsall').addClass('link-metier'))))
+                        .append($('<a>').attr('href', '/philomathes/public/metiers/'+reponse[m].alias+'/profilsall').addClass('link-metier'))))
                     .append($('<div>').addClass('text-works')
                     .addClass('center')
                         .append($('<h6>').text(reponse[m].section))
@@ -140,10 +140,10 @@ $(function(){
                 $('#allworks').empty();
                 for (m in reponse) {
                   if (reponse[m].photo.length == 0) {
-                    var img = '/philo_unity/public/assets/avatar/generic-avatar.png';
+                    var img = '/philomathes/public/assets/avatar/generic-avatar.png';
                   }
                   if (reponse[m].photo.length !== 0) {
-                    var img = '/philo_unity/public/assets/'+reponse[m].photo;
+                    var img = '/philomathes/public/assets/'+reponse[m].photo;
                   }
                     var htmlProfils = $('<article>')
                     .addClass('col')
@@ -158,7 +158,7 @@ $(function(){
                             .append($('<img>').attr('src', img).addClass('photo-work').addClass('responsive-img').addClass('hov-zoom'))
                             .append($('<div>').addClass('text-box')
                             .append($('<h2>').text('Visiter le Profil').addClass('lighten-4'))
-                            .append($('<a>').attr('href',  '/philo_unity/public/profil/profiluser/'+reponse[m].id).addClass('link-metier'))))
+                            .append($('<a>').attr('href',  '/philomathes/public/profil/profiluser/'+reponse[m].id).addClass('link-metier'))))
                         .append($('<div>').addClass('text-works')
                         .addClass('center')
                             .append($('<h6>').text(reponse[m].prenom+' '+reponse[m].nom))
