@@ -31,6 +31,15 @@
 
 		////////////////////////////METIERS////////////////////////////////////////////////////////
 		['GET', '/metiers', 'metiers#metiers', 'metiers'],
+		['GET', '/metiers/formationsEtAteliers', 'metiers#formationsEtAteliers', 'formationsEtAteliers'], //page au 2 bouton
+
+		['GET', '/metiers/formations','metiers#formations', 'formations'], //page formations
+		['GET', '/metiers/ateliers','metiers#ateliers', 'ateliers'], //page ateliers
+		['GET', '/metiers/profilformation/[:id]', 'metiers#profilformation', 'profilformation'], // va chercher par l'id formation le profil d'elle
+		['GET', '/metiers/profilatelier/[:id]', 'metiers#profilatelier', 'profilatelier'], // va chercher par l'id atelier le profil d'elle
+
+
+
 		///['GET', '/formations','metiers#metiers', 'metiers'],
 		['GET', '/atelier', 'atelier#metier', 'atelier'],
 		//2 nouvelles routes a rajouter => formations pro et atelier loisirs . 2 nouveau manager appellant les tables correspondantes

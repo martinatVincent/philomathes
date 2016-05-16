@@ -107,7 +107,7 @@
 					</a>
 				</li>
 				<li><a class="btn btn-5"href="<?= $this->url('actus') ?>">Actualités</a></li>
-				<li><a class="btn btn-5" href="<?= $this->url('metiers') ?>">Formation</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('formationsEtAteliers') ?>">Formation</a></li>
 				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
 				<li><a class="btn btn-5" href="#">Philo connect</a></li>
 				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Espace Admin</a></li><?php endif;?>

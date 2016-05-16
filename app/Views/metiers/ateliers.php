@@ -1,8 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Formations']) ?>
+<?php $this->layout('layout', ['title' => 'ateliers']) ?>
 
 <?php $this->start('main_content') ?>
 
-<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos formations</h3>
+<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos ateliers loisirs</h3>
   <div class="container">
     <ul class="pagination center">
       <?php for($i=1; $i<=$totalpages; $i++):?>
@@ -20,8 +20,8 @@
             <div class=" contain-img">
               <img class="hov-zoom" src="<?= $met['photo']?>" alt="">
               <div class="text-box">
-                <h2 class="lighten-4">Voir la formation</h2>
-                <a class="link-metier" href="<?= $this->url('profilformation', ['id' => $met['id']]) ?>"></a>
+                <h2 class="lighten-4">Voir l'atelier</h2>
+                <a class="link-metier" href="<?= $this->url('profilatelier', ['id' => $met['id']]) ?>"></a>
               </div>
             </div>
             <div class="text-works center">

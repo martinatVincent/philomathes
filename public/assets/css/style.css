@@ -893,3 +893,50 @@ ul.slides{
 	text-align: center;
 	margin-left: 40%;
 }
+#boutton-ateliers{
+	width: 40%;
+	height: 200px;
+	background-color: #e57373;
+	color: white;
+	display: inline-block;
+	text-align: center;
+	padding-top: 8.5% !important;
+}
+#boutton-formations{
+	width: 40%;
+	height: 200px;
+	background-color:#2196f3 ;
+	color: white;
+	display: inline-block;
+	text-align: center;
+	padding-top: 8.5% !important;
+	box-sizing: border-box;
+	margin-right: 17%;
+}
+#boutton-formations a, #boutton-ateliers a{
+	color: white;
+	font-size: 3em;
+
+}
+.boutton_formations_ateliers{
+	padding: 6.5%;
+}
+
+#boutton-formations:hover{
+	transform: scale(1.05);
+	border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+	transition-duration: 0.7s;
+}
+#boutton-ateliers:hover{
+	transform: scale(1.05);
+	border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+	transition-duration: 0.7s;
+}
