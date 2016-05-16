@@ -1,12 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Profils par métier']) ?>
 
 <?php $this->start('main_content') ?>
-	<div id="mainphoto3" class="z-depth-1">
-		<div class="row">
-			<p class="center white-text">Propulsé par la</p>
-			<img class="col s12 col m8 offset-m2 col l6 offset-l3" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>" alt="" />
-		</div>
-	</div>
+	
 	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align"><?= implode('', $sectionchoix);?></h1>
 	<div class="container">
 		<ul class="pagination center">
