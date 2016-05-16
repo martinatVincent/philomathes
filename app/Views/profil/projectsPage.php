@@ -19,7 +19,7 @@ div > h7, div > h7 +p{
 <section id="description" class="container section">
   <div class="row">
     <div id="titleprojet" class="col s12 m12 l4">
-      <h4><?= $projets['project_title']?></h4>
+      <h4><?= $projets['project_title'] ?></h4>
       <p><?= $projets['description']?></p>
     </div>
 

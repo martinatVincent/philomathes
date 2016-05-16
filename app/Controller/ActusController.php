@@ -7,6 +7,7 @@ use Model\ActusModel;
 
 class ActusController extends Controller
 {
+
     public function actus(){
 
       $actusdb = new ActusModel;
@@ -23,8 +24,18 @@ class ActusController extends Controller
 
       $this->show('actus/actus', $params);
 	}
+  public function articleDetails($id)
+  {
 
-    public function ajaxactus(){
+    $actusModel = new ActusModel();
+    $params = [
+      'actus' => $actusModel->find($id),
+    ];
+    $this->show('actus/articleDetails', $params);
+
+  }
+
+    public function ajaxActus(){
 
       $actusdb = new ActusModel;
       $num = 6;

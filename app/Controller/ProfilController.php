@@ -478,7 +478,7 @@ class ProfilController extends Controller
                   "photo" => 'avatar/'.$nameAvatar
                   ,
           ];
-          $params['picUrl'] = $_SERVER['REDIRECT_W_BASE'].'/assets/'.$data['photo'];
+          $params['picUrl'] = $_SERVER['REDIRECT_W_BASE'].'/assets/avatar'.$data['photo'];
 
           //on met à jour la bdd
           $userModel->update($data, $infosUser['id']);
@@ -531,7 +531,7 @@ class ProfilController extends Controller
                   "photo" => 'projet/'.$nameProjet
                   ,
           ];
-          $params['picUrl'] = $_SERVER['REDIRECT_W_BASE'].'/assets/'.$data['photo'];
+          $params['picUrl'] = $_SERVER['REDIRECT_W_BASE'].'/assets/projet'.$data['photo'];
 
           //on met à jour la bdd
           $projetsModel->update($data, $infosUser['id']);

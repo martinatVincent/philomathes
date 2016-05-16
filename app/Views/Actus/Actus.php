@@ -34,7 +34,7 @@
           <span class="white-text">
 						<h6 class="title-post"><?= $act['titre'];?></h6>
 						<p><?= mb_substr($act['description'], 0 , 400 ); ?>
-						<a href="read.php?id=<?= mb_substr($act['description'], 0 , 400 ); ?>" class="link"> Lire la suite &raquo; </a>
+							<a href="<?= $this->url('articleDetails', ['id'=> $act['id']]) ?>" class="link"> Lire la suite &raquo; </a>
 						</p>
           </span>
         </div>

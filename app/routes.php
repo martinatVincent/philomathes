@@ -27,7 +27,8 @@
 
 		////////////////////////////ACTUALITES////////////////////////////////////////////////////////
 		['GET', '/actus', 'actus#actus', 'actus'],
-		['GET', '/actuspage', 'actus#ajaxactus', 'paginationsactus'],
+		['GET', '/actuspage', 'actus#ajaxActus', 'paginationsactus'],
+		['GET|POST', '/actus/articleDetails/[:id]', 'actus#articleDetails', 'articleDetails'],
 
 		////////////////////////////METIERS////////////////////////////////////////////////////////
 		['GET', '/metiers', 'metiers#metiers', 'metiers'],
