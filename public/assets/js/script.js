@@ -4,7 +4,7 @@ $('.slider').height(H-40);});
 $(".button-collapse").sideNav({  edge: 'right'});
 $(document).ready(function(){
     $('.collapsible').collapsible({
-      accordion : false // philo_unity A setting that changes philomathes the collapsible behavior to expandable instead of the default accordion style
+      accordion : false // A setting that changes philomathes the collapsible behavior to expandable instead of the default accordion style
     });
 });
 $('select').material_select();

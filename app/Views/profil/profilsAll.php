@@ -31,7 +31,7 @@
 	          <?php endif; ?>
 						<div class="text-box ">
 							<h2>Visiter le Profil</h2>
-							<a class="link-metier" href="<?= $this->url('/profiluser')?>"></a>
+							<a class="link-metier" href="<?= $this->url('profiluser', ['id' =>  $use['id']])?>"></a>
 						</div>
 					</div>
 					<div class="text-works center">
