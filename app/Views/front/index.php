@@ -41,6 +41,7 @@
     Nous sommes un Organisme de formation et d’actions culturelles a Bordeaux. Une association pour la promotion, la valorisation et la diffusion des sciences, lettres, arts et techniques a Bordeaux et en Aquitaine. Ses principaux moyens d’action sont la formation permanente, et les conférences, débats, rencontres et expositions.
   </p>
   <a class="btn btn-5 shadow-effect" id="index-contact" href="<?= $this->url('contactAdmin') ?>">Nous contacter<a/>
+    <h5 class="ad-philo"><br>cliquez sur le bouton ci dessus<br><br>ou a l'Adresse suivante : 66 Rue Abbé de l'Épée,<br> 33000 Bordeaux</h5>
   </div>
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Les métiers proposés</h3>
   <div class="container">
