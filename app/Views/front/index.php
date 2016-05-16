@@ -8,29 +8,29 @@
     <li>
       <img src="http://static.panoramio.com/photos/original/12271445.jpg"> <!-- random image -->
       <div class="caption center-align">
-        <h3 class="teal lighten-2">PHILOMATHIQUE de bordeaux</h3>
-        <h5 class="light grey-text text-lighten-3">Philomathique, organisme de formation à Bordeaux depuis 1808</h5>
+        <h3 class="teal lighten-2"></h3>
+        <h5 class="light grey-text text-lighten-3"></h5>
       </div>
     </li>
     <li>
-      <img src="http://www.bordeaux-gazette.com/IMG/jpg/samedi_28_02_15_8_copie.jpg"> <!-- random image -->
+      <img src="http://www.sources-caudalie.com/blog/wp-content/uploads/2015/06/Place_de_la_Bourse_Bordeaux_France.jpg"> <!-- random image -->
       <div class="caption center-align">
-        <h3 class="teal lighten-2">PHILOMATHIQUE de bordeaux</h3>
-        <h5 id="sous-titre" class="light grey-text text-lighten-3">Philomathique, organisme de formation à Bordeaux depuis 1808</h5>
+        <h3 class="teal lighten-2"></h3>
+        <h5 id="sous-titre" class="light grey-text text-lighten-3"></h5>
       </div>
     </li>
     <li>
       <img src="http://www.hyperbolyk-blog.com/wp-content/uploads/2014/10/formation.png"> <!-- random image -->
       <div class="caption center-align">
-        <h3 class="teal lighten-2">PHILOMATHIQUE de bordeaux</h3>
-        <h5 class="light grey-text text-lighten-3">Philomathique, organisme de formation à Bordeaux depuis 1808</h5>
+        <h3 class="teal lighten-2"></h3>
+        <h5 class="light grey-text text-lighten-3"></h5>
       </div>
     </li>
     <li>
-      <img src="http://www.mairie-deuillabarre.fr/images/5-PRATIQUE/5.8-EMPLOIS-FORMATIONS-ENTREPRENDRE/Formation.jpg"> <!-- random image -->
+      <img src="http://www.wf3.fr/wp-content/uploads/2015/03/DSC_0106.jpg"> <!-- random image -->
       <div class="caption center-align">
-        <h3 class="teal lighten-2">PHILOMATHIQUE de bordeaux</h3>
-        <h5 class="light grey-text text-lighten-3">Philomathique, organisme de formation à Bordeaux depuis 1808</h5>
+        <h3 class="teal lighten-2"></h3>
+        <h5 class="light grey-text text-lighten-3"></h5>
       </div>
     </li>
   </ul>
