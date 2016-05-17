@@ -10,9 +10,9 @@
 			</div>
 			<div class="right-align col l6 m6 s6 divfooter">
 				<ul>
-					<li><a class="btn btn-5" href="<?= $this->url('contactAdmin') ?>"><u>Nous Contacter</u></a></li>
-					<br>
-					<li><a class="btn btn-5" href="<?= $this->url('conditions') ?>"><u>condition general d'utilisation</u></a></li>
+					<li><a href="<?= $this->url('contactAdmin') ?>"><u>Nous Contacter</u></a></li>
+					<!--Bouton non recommandé sur lien donc retrait class="btn btn-5"--><br>
+					<li><a href="<?= $this->url('conditions') ?>"><u>Conditions générales d'utilisation</u></a></li>
 				</ul>
 				<h5 class="pub">WEB-UNITY 2016 &copy;</h5>
 			</div>

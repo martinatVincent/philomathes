@@ -1,5 +1,9 @@
 <header>
-	<img class="center" id="logo-index" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>"></img>
+	<div class="logo-head center">
+		<h5 class="center">
+			<img class="center" id="logo-index" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>">
+		</h5>
+	</div>
 	<nav class="teal">
 		<div class="nav-wrapper">
 			<a href="<?= $this->url('index') ?>">
