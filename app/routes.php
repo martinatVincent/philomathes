@@ -62,4 +62,7 @@
 		['GET|POST', '/admin/insertmetiers', 'admin#insertMetiers', 'insertMetiers'],
 
 		['GET|POST', '/admin/insertactus', 'admin#insertActus', 'insertActus'],
+
+		//deleteProfil
+		['GET|POST', '/admin/deleteprofil', 'admin#deleteProfil', 'deleteProfil'],
 	);

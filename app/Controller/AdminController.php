@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Model\BlogModel;
 use \W\Security\AuthentificationModel;
+use Model\DeleteAccountModel;
 use \W\Model\UsersModel;
 use \Model\MetiersModel;
 use \Model\FormationsModel;
@@ -242,7 +243,7 @@ class AdminController extends Controller
 		$ActusModel = new ActusModel();
 		$errors = array();
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
-		// Faire vérification des champs ICI
+		// Faire vérification des champs ICI find
 		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
 		$dirUpload = 'assets/img/';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
@@ -470,5 +471,41 @@ class AdminController extends Controller
 				var_dump($success);
 	}
 
-
+	public function deleteProfil(){
+		$delete = new DeleteAccountModel();
+		$params = array();
+    	$errors = array();
+    	if(!empty($_POST)){
+	        if(empty($_POST['email'])){
+	  			$errors[] = 'l\'email est vide';
+	  		}
+	  		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false){
+	          $errors[] = 'L\'email est invalide';
+	        }
+	        if(empty($_POST['email2'])){
+	  			$errors[] = 'l\'email de confirmation est vide';
+	  		}
+	        if($_POST['email'] != $_POST['email2']){
+	        	$errors[] = 'l\'email de confirmation semble incorrecte';
+	        }
+	  		if(count($errors) == 0){
+		        //trouver l'id de l'utilisateur par son adresse mail
+	  			$id = $delete->findIdByMail($_POST['email2']);
+	  			var_dump($id);
+		        if(true){
+		            $allinfos = $delete->deleteAll($id['id']);
+		            var_dump($allinfos);
+		            if($allinfos == true){ 
+		            	$params['success'] = 'Le profil à bien été supprimé !';
+		        	}else{
+		        		$errors[] = 'Le profil n\'a pas été supprimé';
+		        	}
+		        }else{
+		            $errors[] = 'L\'email n\'est pas present dans la base de données, veuillez réessayer.';
+		        }
+		    }
+      	}
+        $params['errors'] = $errors;
+        $this->show('admin/deleteProfil', $params);
+	}
 }

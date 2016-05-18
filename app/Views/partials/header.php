@@ -27,7 +27,7 @@
 	  				<li><a href="<?= $this->url('insertActus') ?>">Entrer une nouvelle actualité</a></li>
 	  			<?php endif;?>
 				<?php if($w_user['role']=='Admin'):?>
-	  				<li><a href="<?= $this->url('deleteaccount')?>">Supprimer un profil</a></li>
+	  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un profil</a></li>
 	  			<?php endif;?>
 	  			<?php if($w_user['role']!='Admin'):?>
 	  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
@@ -117,7 +117,7 @@
 									
 			  						<?php endif;?>
 			  						<?php if($w_user['role']=='Admin'):?>
-						  				<li><a href="<?= $this->url('deleteaccount')?>">Supprimer un profil</a></li>
+						  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un profil</a></li>
 						  			<?php endif;?>
 						  			<?php if($w_user['role']!='Admin'):?>
 						  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
