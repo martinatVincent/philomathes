@@ -10,19 +10,37 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-	<?php $this->insert('partials/header') ?>
-	<div>
-		<section>
-			<?= $this->section('main_content') ?>
-		</section>
-	</div>
-	<?php $this->insert('partials/footer') ?>
+<?php if($w_user['role']=='Admin'):?>
+	<body class="fondAdmin">
+		<?php $this->insert('partials/header') ?>
+		<div>
+			<section>
+				<?= $this->section('main_content') ?>
+			</section>
+		</div>
+		<?php $this->insert('partials/footer') ?>
 
-	<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-2.2.0.js') ?>"></script>
-	<script type="text/javascript" src="<?= $this->assetUrl('js/materialize.js') ?>"></script>
-	<?= $this->section('script') ?>
-	<script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+		<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-2.2.0.js') ?>"></script>
+		<script type="text/javascript" src="<?= $this->assetUrl('js/materialize.js') ?>"></script>
+		<?= $this->section('script') ?>
+		<script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+	</body>
+<?php endif;?>
 
-</body>
+<?php if($w_user['role']!='Admin'):?>
+	<body>
+		<?php $this->insert('partials/header') ?>
+		<div>
+			<section>
+				<?= $this->section('main_content') ?>
+			</section>
+		</div>
+		<?php $this->insert('partials/footer') ?>
+
+		<script type="text/javascript" src="<?= $this->assetUrl('js/jquery-2.2.0.js') ?>"></script>
+		<script type="text/javascript" src="<?= $this->assetUrl('js/materialize.js') ?>"></script>
+		<?= $this->section('script') ?>
+		<script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+	</body>
+<?php endif;?>
 </html>

@@ -5,7 +5,7 @@
   <div class="row">
 
       <h4 class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Actualités</h4>
-      <form method="POST" class="col s12 m12 l6 offset-l3" >
+      <form method="POST" class="col s12 m12 l6 offset-l3" enctype="multipart/form-data">
         <div class="input-field ">
 
         </div>

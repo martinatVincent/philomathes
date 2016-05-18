@@ -921,7 +921,7 @@ ul.slides{
 	color: white;
 	display: inline-block;
 	text-align: center;
-	padding-top: 8.5% !important;
+	padding-top: 6.5% !important;
 }
 #boutton-formations{
 	width: 40%;
@@ -930,7 +930,7 @@ ul.slides{
 	color: white;
 	display: inline-block;
 	text-align: center;
-	padding-top: 8.5% !important;
+	padding-top: 6.5% !important;
 	box-sizing: border-box;
 	margin-right: 17%;
 }
@@ -960,4 +960,14 @@ ul.slides{
   outline-offset: 15px;
   text-shadow: 1px 1px 2px #427388;
 	transition-duration: 0.7s;
+}
+
+.fondAdmin{
+	background-color: #C4D0CC;
+}
+section{
+	padding: 3.5% 0;
+}
+.deconectNav{
+	background-color: orange;
 }

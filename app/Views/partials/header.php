@@ -5,7 +5,7 @@
 		</h5>
 	</div>
 	<nav class="teal">
-		<div class="nav-wrapper">
+		<div class="nav-wrapper container">
 			<a href="<?= $this->url('index') ?>">
 				<img class="left" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>"></img>
 			</a>
@@ -13,19 +13,26 @@
 				<li><a href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a></li>
 			  	<li class="divider"></li>
 			  	<li><a href="<?= $this->url('updateProfil') ?>">Mes infos</a></li>
+			  	<li class="deconectNav" ><a href="<?= $this->url('deconnect') ?>">Se deconnecter</a></li>
 			  	<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a></li>
+	  				<li><a href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a></li>
 	  			<?php endif;?>
 	  			<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertSection') ?>">Entrer une nouvelle formation/atelier</a></li>
+	  				<li><a href="<?= $this->url('insertSection') ?>">Entrer une nouvelle formation/atelier</a></li>
 	  			<?php endif;?>
-					<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertMetiers') ?>">Entrer un nouveau metier</a></li>
+				<?php if($w_user['role']=='Admin'):?>
+	  				<li><a href="<?= $this->url('insertMetiers') ?>">Entrer un nouveau metier</a></li>
 	  			<?php endif;?>
-					<?php if($w_user['role']=='Admin'):?>
-	  			<li><a href="<?= $this->url('insertActus') ?>">Entrer une nouvelle actualité</a></li>
+				<?php if($w_user['role']=='Admin'):?>
+	  				<li><a href="<?= $this->url('insertActus') ?>">Entrer une nouvelle actualité</a></li>
 	  			<?php endif;?>
-				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
+				<?php if($w_user['role']=='Admin'):?>
+	  				<li><a href="<?= $this->url('deleteaccount')?>">Supprimer un profil</a></li>
+	  			<?php endif;?>
+	  			<?php if($w_user['role']!='Admin'):?>
+	  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
+	  			<?php endif;?>
+				
 			</ul>
 			<ul id="dropdown2" class="dropdown-content">
 				<form class="center " action="<?= $this->url('recherche') ?>" method="GET">
@@ -47,6 +54,9 @@
 					</div>
 				</form>
 			</ul>
+
+
+
 			<ul id="mobile-demo" class=" col s12 m6 l4 right side-nav">
 				<li class="white">
 					<ul data-collapsible="accordion" class="collapsible">
@@ -84,20 +94,34 @@
 						<ul data-collapsible="accordion" class="collapsible">
 							<li>
 								<div class="collapsible-header white black-text">
+								<?php if($w_user['role']=='Admin'):?>
+									<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle profilePic" id="circleprofil"/>
+										&nbsp;&nbsp;&nbsp;Admin
+										<i class="material-icons right black-text">arrow_drop_down</i>
+								<?php endif;?>		
+								<?php if($w_user['role']!='Admin'):?>
 									<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle profilePic" id="circleprofil"/>
 										&nbsp;&nbsp;&nbsp;Mon profil
 										<i class="material-icons right black-text">arrow_drop_down</i>
+								<?php endif;?>
 								</div>
 								<form class="center collapsible-body" action="<?= $this->url('recherche') ?>" method="GET" >
 									<a class="center" href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a>
 								  	<a class="black-text" href="<?= $this->url('updateProfil') ?>">Mes infos</a>
+								  	<a class="btn btn-5" href="<?= $this->url('deconnect') ?>">Se deconnecter</a>
 								  	<?php if($w_user['role']=='Admin'):?>
 						  			<a class="black-text" href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a>
 						  			<?php endif;?>
 						  			<?php if($w_user['role']=='Admin'):?>
 						  			<a class="black-text" href="<?= $this->url('insertSection') ?>">Entrer une nouvelle section</a>
-									<a class="black-text" href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a>
+									
 			  						<?php endif;?>
+			  						<?php if($w_user['role']=='Admin'):?>
+						  				<li><a href="<?= $this->url('deleteaccount')?>">Supprimer un profil</a></li>
+						  			<?php endif;?>
+						  			<?php if($w_user['role']!='Admin'):?>
+						  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
+						  			<?php endif;?>
 								</form>
 							</li>
 						</ul>
@@ -114,13 +138,22 @@
 				<li><a class="btn btn-5" href="<?= $this->url('formationsEtAteliers') ?>">Formation</a></li>
 				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
 				<li><a class="btn btn-5" href="#">Philo connect</a></li>
-				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Espace Admin</a></li><?php endif;?>
-				<?php if($w_user) :?><li><a class="btn btn-5" href="<?= $this->url('deconnect') ?>">Se deconnecter</a></li><?php endif;?>
-				<?php if($w_user)  :?>
+				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Se connecter</a></li><?php endif;?>
+				
+				<?php if($w_user && $w_user['role']!='Admin')  :?>
 					<li>
 						<a href="#" class="col l6 dropdown-button" data-beloworigin="true" data-activates="dropdown1" id="loginfo">
 								<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle  profilePic" id="circleprofil"/>
 						&nbsp;&nbsp;&nbsp;Mon profil
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+					</li>
+				<?php endif;?>
+				<?php if($w_user['role']=='Admin')  :?>
+					<li>
+						<a href="#" class="col l6 dropdown-button" data-beloworigin="true" data-activates="dropdown1" id="loginfo">
+								<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle  profilePic" id="circleprofil"/>
+						&nbsp;&nbsp;&nbsp;Options admin
 						<i class="material-icons right">arrow_drop_down</i>
 					</a>
 					</li>
