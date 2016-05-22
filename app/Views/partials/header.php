@@ -5,7 +5,7 @@
 		</h5>
 	</div>
 	<nav class="teal">
-		<div class="nav-wrapper"> <!-- container retrait test-->
+		<div class="nav-wrapper container">
 			<a href="<?= $this->url('index') ?>">
 				<img class="left" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>"></img>
 			</a>
