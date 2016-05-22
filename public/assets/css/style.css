@@ -58,9 +58,11 @@ main {padding-bottom: 5em}
 
 
 /*************************END HOVER IMAGE PROFILS METIER...********************/
-#marge-titre{
-
+#marge-titre{ /*h3-- Qui sommes nous?*/
 	padding: 0.25em 0;
+	font-size: 2em;
+	width: 46%;
+	background-color: transparent!important;
 }
 #alias{
 	width: 48.5%;
@@ -184,6 +186,7 @@ nav i{
 	/*background-color: rgba(34, 161, 130, 0.52);*/
 }
 
+
 /* ################################## START : PROPRIETES GLOBALES################################## */
 
 /*---Header---*/
@@ -196,6 +199,10 @@ nav {
 	height: 64px !important;
     color: #fff;
     background-color: #128b82;
+}
+div.nav-wrapper{
+	margin: 0 8% 0 8%;
+	width:100%;
 }
 /*---FOOTER---*/
 footer u{
@@ -218,6 +225,13 @@ footer .row{
 .fa-3x{
 	margin: 0 10px;
 	color: white;
+}
+.fa-3x{
+	margin: 0 10px;
+	color: white;
+}
+.fa-facebook-square{
+	margin-left: 0;
 }
 /***************** start : RESPONSIVE SUR BIG IMAGE ***************/
 /***/
@@ -250,7 +264,7 @@ footer .row{
 				margin: 0 5px;
 			}
 /***/	}
-/***/	@media screen and (max-width: 450px) {
+/***/	@media screen and (max-width: 450px){
 			footer div{
 /***/		   height: 125px;
 /***/		 }
@@ -263,6 +277,7 @@ footer .row{
 				margin: 0;
 			}
 /***/	}
+
 /***/
 /***************** end : RESPONSIVE FOOTER ***************/
 
@@ -285,11 +300,33 @@ footer .row{
 		#nav-resp{
 			float: none !important;
 		}
-		#nav-resp {
+		@media screen and (max-width: 1012px){
+			#nav-resp li a{
+				font-size: 12px;
+    			padding: 0 0.05em;
+			}
+		}
+		@media screen and (max-width: 1205px){
+			#nav-resp li a{
+				font-size: 14px;
+    			padding: 0 0.07em;
+			}
+		}
+		@media screen and (max-width: 1433px){
+			#nav-resp li a{
+				font-size: 15px;
+    			padding: 0 1em;
+			}
+		}
+		@media screen and (max-width: 1158px){
+			#nav-resp li a{
+				font-size: 14px;
+    			padding: 0 0.7em;
+			}
 		}
 /***************** stop : RESPONSIVE NAV HEADER ***************/
 
-/* START : ENTETE pages cgu, commentaires et galleryproject */
+
 
 	#banner-project span{
 		background-color: #128b82;
@@ -899,10 +936,16 @@ ul.slides{
   text-shadow: 1px 1px 2px #427388;
 }
 #index-contact{
-	width: 40%;
+	/*width: 40%;
 	height: 60px;
 	font-size: 2em;
-	padding: 10px;
+	padding: 10px;*/
+	width: 36%;
+    height: 45px;
+    font-size: 1em;
+    padding: 5px;
+    vertical-align: middle;
+    text-align: center;
 }
 .ad-philo{
 	/*background-color: #80cbc4;*/
