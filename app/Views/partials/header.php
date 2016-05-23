@@ -1,9 +1,5 @@
 <header>
-	<div class="logo-head center">
-		<h5 class="center">
-			<img class="center" id="logo-index" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>">
-		</h5>
-	</div>
+	<div class="navbar-fixed">
 	<nav class="teal">
 		<div class="nav-wrapper container">
 			<a href="<?= $this->url('index') ?>">
@@ -32,7 +28,7 @@
 	  			<?php if($w_user['role']!='Admin'):?>
 	  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
 	  			<?php endif;?>
-				
+
 			</ul>
 			<ul id="dropdown2" class="dropdown-content">
 				<form class="center " action="<?= $this->url('recherche') ?>" method="GET">
@@ -98,7 +94,7 @@
 									<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle profilePic" id="circleprofil"/>
 										&nbsp;&nbsp;&nbsp;Admin
 										<i class="material-icons right black-text">arrow_drop_down</i>
-								<?php endif;?>		
+								<?php endif;?>
 								<?php if($w_user['role']!='Admin'):?>
 									<img src="<?= $this->assetUrl($w_user['photo']) ?>" alt="" class="left circle profilePic" id="circleprofil"/>
 										&nbsp;&nbsp;&nbsp;Mon profil
@@ -114,7 +110,7 @@
 						  			<?php endif;?>
 						  			<?php if($w_user['role']=='Admin'):?>
 						  			<a class="black-text" href="<?= $this->url('insertSection') ?>">Entrer une nouvelle section</a>
-									
+
 			  						<?php endif;?>
 			  						<?php if($w_user['role']=='Admin'):?>
 						  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un profil</a></li>
@@ -129,17 +125,18 @@
 				<?php endif;?>
 			</ul>
 			<ul id="nav-resp" class=" col s12 m6 l4 right hide-on-med-and-down">
+
+				<li><a class="btn btn-5"href="<?= $this->url('actus') ?>">Actualités</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('formationsEtAteliers') ?>">Formation</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
+				<li><a class="btn btn-5" href="#">Philo connect</a></li>
 				<li>
 					<a href="#" class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" data-activates="dropdown2" >
 					<i class="material-icons search">search</i>
 					</a>
 				</li>
-				<li><a class="btn btn-5"href="<?= $this->url('actus') ?>">Actualités</a></li>
-				<li><a class="btn btn-5" href="<?= $this->url('formationsEtAteliers') ?>">Formation</a></li>
-				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
-				<li><a class="btn btn-5" href="#">Philo connect</a></li>
 				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Se connecter</a></li><?php endif;?>
-				
+
 				<?php if($w_user && $w_user['role']!='Admin')  :?>
 					<li>
 						<a href="#" class="col l6 dropdown-button" data-beloworigin="true" data-activates="dropdown1" id="loginfo">
@@ -162,4 +159,5 @@
 			<a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
 		</div>
 	</nav>
+</div>
 </header>

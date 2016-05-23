@@ -6,8 +6,10 @@ use \PHPMailer;
 use \config;
 use \W\Controller\Controller;
 use \W\Model\UsersModel;
+use \W\Model\Model;
 use \Model\RechercheModel;
 use \Model\MetiersModel;
+use \Model\ActusModel;
 
 
 class FrontController extends Controller
@@ -18,9 +20,24 @@ class FrontController extends Controller
 	 */
 	public function index()
 	{
-		$profils = new UsersModel();
-		$profilselect = $profils->findAll('date_update', 'ASC', 6);
-		$params['users'] = $profilselect;
+		$actus = new ActusModel();
+		$actuselect = $actus->findAll('date_update', 'ASC', 3);
+		$params['actus'] = $actuselect;
+
+		$metiersdb = new MetiersModel;
+		$num = 6;
+		$page = 1;
+		$start = ($page-1) * $num;
+		$params['page']  = $page;
+		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+		$params['metiers'] = $metiers;
+		$allmetiers = $metiersdb->findAll('section', "ASC");
+		$countmetiers = count($allmetiers) + 1 ;
+		$totalpages = ceil($countmetiers/$num);
+		$params['totalpages'] = $totalpages;
+
+
+
 		$this->show('front/index', $params);
 	}
 	public function metiers(){

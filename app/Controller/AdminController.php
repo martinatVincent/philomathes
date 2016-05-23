@@ -83,6 +83,7 @@ class AdminController extends Controller
 		$dirUpload = '/assets/img';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
+
 		if(!empty($_POST)){
 			// Faire vérification des champs ICI
 			if(empty($_POST['alias'])){
@@ -94,9 +95,10 @@ class AdminController extends Controller
 			if(empty($_POST['section'])){
 				$errors[] = 'la section est vide';
 			}
-			if(empty($_POST['photo'])){
+			if(empty($_FILES['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
+
 
 			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
 			if(count($errors) == 0){
@@ -104,25 +106,31 @@ class AdminController extends Controller
 					'section' 	  	=> $_POST['section'],
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
-					'photo' 	    => $_POST['photo'],
+					'photo' 	    => $_FILES['photo'],
 				]);
+				// Move uploaded file retourne un booleen, true en cas de réussite / false en cas d'échec
+				if (!empty($_FILES['photo']) && isset($_FILES['photo'])) {
+					$tmpFichier= $_FILES['photo'];
+					move_uploaded_file($tmpFichier,$dirUpload.'/'.$_FILES['photo']);
+					$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];}
 
+
+				elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$_FILES['photo'])){
+					$error['file'] = 'Erreur lors de l\'envoi du fichier';
+				}
 				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 			}
-			// sinon on affiche les erreurs:
-			else{
-				$params['errors'] = $errors;
-			}
 
+		// sinon on affiche les erreurs:
+		else{
+			$params['errors'] = $errors;
 		}
+
+
 
 		$this->show('admin/insertMetiers', $params);
 	}
-
-
-
-
-
+}
 	public function insertFormations(){
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();
@@ -333,7 +341,7 @@ class AdminController extends Controller
 		if (empty($_POST)){
 			$vue = true;
 		}
-		 // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
+		// Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		if (!empty($_POST)){
 			$vue = false;
 			$userId = $login->logUserOut();
@@ -366,7 +374,7 @@ class AdminController extends Controller
 					$userModel->update([
 						"confirmedToken" 		=> $token,
 						"dateConfirmedToken" 	=>date('Y-m-d',strtotime('+1 week'))
-						], $idUser);	// on stocke le token dans la bdd pour cet utilisateur
+					], $idUser);	// on stocke le token dans la bdd pour cet utilisateur
 					$successUrl = $this->generateUrl('reiniPassTok').'?email='.$_POST['email'].'&token='.$token;// on crée le lien permettant à l'utilisateur de resaisir un
 					$successLink = "http://localhost".$successUrl;
 					// nouveau mot de passe
@@ -395,7 +403,7 @@ class AdminController extends Controller
 
 					$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 					$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-						*/
+					*/
 					$mail->isHTML(true);
 					$mail->Body = '<a href="'.$successLink.'">Reinitialisez votre mot de passe en cliquant sur cette phrase ce liens est valable une semaine après merci de refaire une demande.</a>';                  	// Set email format to HTML
 
@@ -403,25 +411,25 @@ class AdminController extends Controller
 
 
 				} else {
-				// si non:
+					// si non:
 					// message d'erreur: cette adresse mail ne correspond pas à un membre du site
 					$errors[] = 'L\'email n\'existe pas';
 				}
 				// si oui:
-					// on génère un 'token', identifiant unique
+				// on génère un 'token', identifiant unique
 
-					// on stocke le token dans la bdd pour cet utilisateur
+				// on stocke le token dans la bdd pour cet utilisateur
 
-					// on crée le lien permettant à l'utilisateur de resaisir un nouveau mot de passe
-					// ce lien doit contenir le token, c'est ce qui nous permettra de vérifier que l'utilisateur qui saisit le nouveau mot de passe est bien le propriétaire de l'adresse email (qui a cliqué sur le lien)
+				// on crée le lien permettant à l'utilisateur de resaisir un nouveau mot de passe
+				// ce lien doit contenir le token, c'est ce qui nous permettra de vérifier que l'utilisateur qui saisit le nouveau mot de passe est bien le propriétaire de l'adresse email (qui a cliqué sur le lien)
 
 
 				if(!$mail->send()) {
-						$errors[] = 'L\'email n\'a pas pu être envoyé';
-						echo 'Mailer Error: ' . $mail->ErrorInfo;
-					} else {
-						$params['success'] = 'Youhou, c\'est envoyé!';
-					}
+					$errors[] = 'L\'email n\'a pas pu être envoyé';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+					$params['success'] = 'Youhou, c\'est envoyé!';
+				}
 			}
 		}
 		if(count($errors) > 0){
@@ -429,7 +437,7 @@ class AdminController extends Controller
 		}
 
 		$this->show('admin/reiniPass', $params);
-}
+	}
 	public function reiniPassTok(){
 		$login = new AuthentificationModel();
 		$userModel = new UsersModel();
@@ -438,74 +446,74 @@ class AdminController extends Controller
 		//verifier et recuperer le token et email puis :
 
 
-			//récuperer les infos du formulaire
-				if(!empty($_POST)){
-					// Faire vérification des champs ICI
-					if (empty($_POST['pass'])) {
-						$errors[]='le mot de passe est vide';
+		//récuperer les infos du formulaire
+		if(!empty($_POST)){
+			// Faire vérification des champs ICI
+			if (empty($_POST['pass'])) {
+				$errors[]='le mot de passe est vide';
+			}
+			if (empty($_POST['confirm_pass'])) {
+				$errors[]='la confirmation du mot de passe est vide';
+			}
+
+			//les deux soient identiques
+			// mettre à jour le mot de passe
+			if(count($errors) == 0){
+				// on va vérifier qu'il existe un utilisateur avec cet email dans la base
+				if($idUser = $userModel->emailExists($_GET['email'])){
+
+					$idUser = $userModel->getUserByUsernameOrEmail($_GET['email'])['id']; //chercher id
+					$userModel->update([
+						"password" => password_hash($_POST['pass'],PASSWORD_DEFAULT)], $idUser);	// Modifie une ligne en fonction d'un identifiant et on stocke le nouveau mot de passe dans la bdd pour cet utilisateur
 					}
-					if (empty($_POST['confirm_pass'])) {
-						$errors[]='la confirmation du mot de passe est vide';
+					else{
+						$params['error'] = 'votre mot de passe n\'a pas pu etre changer!!!';
 					}
 
-					//les deux soient identiques
-					// mettre à jour le mot de passe
-					if(count($errors) == 0){
-						// on va vérifier qu'il existe un utilisateur avec cet email dans la base
-				        if($idUser = $userModel->emailExists($_GET['email'])){
-
-							$idUser = $userModel->getUserByUsernameOrEmail($_GET['email'])['id']; //chercher id
-							$userModel->update([
-								"password" => password_hash($_POST['pass'],PASSWORD_DEFAULT)], $idUser);	// Modifie une ligne en fonction d'un identifiant et on stocke le nouveau mot de passe dans la bdd pour cet utilisateur
-						}
-						else{
-							$params['error'] = 'votre mot de passe n\'a pas pu etre changer!!!';
-						}
-
-					}
-					$params['success'] = 'votre nouveau mot de passe à bien été changé !';
 				}
+				$params['success'] = 'votre nouveau mot de passe à bien été changé !';
+			}
 
-				$this->show('admin/reiniPassTok', $params);
-				//$this->redirectToRoute('index');
-				var_dump($success);
-	}
+			$this->show('admin/reiniPassTok', $params);
+			//$this->redirectToRoute('index');
+			var_dump($success);
+		}
 
-	public function deleteProfil(){
-		$delete = new DeleteAccountModel();
-		$params = array();
-    	$errors = array();
-    	if(!empty($_POST)){
-	        if(empty($_POST['email'])){
-	  			$errors[] = 'l\'email est vide';
-	  		}
-	  		if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false){
-	          $errors[] = 'L\'email est invalide';
-	        }
-	        if(empty($_POST['email2'])){
-	  			$errors[] = 'l\'email de confirmation est vide';
-	  		}
-	        if($_POST['email'] != $_POST['email2']){
-	        	$errors[] = 'l\'email de confirmation semble incorrecte';
-	        }
-	  		if(count($errors) == 0){
-		        //trouver l'id de l'utilisateur par son adresse mail
-	  			$id = $delete->findIdByMail($_POST['email2']);
-	  			var_dump($id);
-		        if(true){
-		            $allinfos = $delete->deleteAll($id['id']);
-		            var_dump($allinfos);
-		            if($allinfos == true){ 
-		            	$params['success'] = 'Le profil à bien été supprimé !';
-		        	}else{
-		        		$errors[] = 'Le profil n\'a pas été supprimé';
-		        	}
-		        }else{
-		            $errors[] = 'L\'email n\'est pas present dans la base de données, veuillez réessayer.';
-		        }
-		    }
-      	}
-        $params['errors'] = $errors;
-        $this->show('admin/deleteProfil', $params);
+		public function deleteProfil(){
+			$delete = new DeleteAccountModel();
+			$params = array();
+			$errors = array();
+			if(!empty($_POST)){
+				if(empty($_POST['email'])){
+					$errors[] = 'l\'email est vide';
+				}
+				if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) !== false){
+					$errors[] = 'L\'email est invalide';
+				}
+				if(empty($_POST['email2'])){
+					$errors[] = 'l\'email de confirmation est vide';
+				}
+				if($_POST['email'] != $_POST['email2']){
+					$errors[] = 'l\'email de confirmation semble incorrecte';
+				}
+				if(count($errors) == 0){
+					//trouver l'id de l'utilisateur par son adresse mail
+					$id = $delete->findIdByMail($_POST['email2']);
+					var_dump($id);
+					if(true){
+						$allinfos = $delete->deleteAll($id['id']);
+						var_dump($allinfos);
+						if($allinfos == true){
+							$params['success'] = 'Le profil à bien été supprimé !';
+						}else{
+							$errors[] = 'Le profil n\'a pas été supprimé';
+						}
+					}else{
+						$errors[] = 'L\'email n\'est pas present dans la base de données, veuillez réessayer.';
+					}
+				}
+			}
+			$params['errors'] = $errors;
+			$this->show('admin/deleteProfil', $params);
+		}
 	}
-}

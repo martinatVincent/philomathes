@@ -23,7 +23,7 @@
 					<div class=" col s12 m2 l2 mcontain-img">
 						<p>Article posté le <?= date('d/m/Y H:i', strtotime($act['date'])); ?></p>
 						<div class="col s12 m10 l10  contain-img">
-							<img class="circle responsive-img" src="<?= $act['photo']?>" alt="">
+							<img class="circle responsive-img" src="<?= $this->assetUrl('img/'.'$act['photo']') ?>" alt="">
 						</div>
 
 						</div>

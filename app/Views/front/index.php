@@ -3,38 +3,32 @@
 <?php $this->start('main_content') ?>
 
 
-<div class="slider z-depth-1">
-  <ul class="slides">
-    <li>
-      <img src="http://static.panoramio.com/photos/original/12271445.jpg"> <!-- random image -->
-      <div class="caption center-align">
-        <h3 class="teal lighten-2"></h3>
-        <h5 class="light grey-text text-lighten-3"></h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://www.sources-caudalie.com/blog/wp-content/uploads/2015/06/Place_de_la_Bourse_Bordeaux_France.jpg"> <!-- random image -->
-      <div class="caption center-align">
-        <h3 class="teal lighten-2"></h3>
-        <h5 id="sous-titre" class="light grey-text text-lighten-3"></h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://www.hyperbolyk-blog.com/wp-content/uploads/2014/10/formation.png"> <!-- random image -->
-      <div class="caption center-align">
-        <h3 class="teal lighten-2"></h3>
-        <h5 class="light grey-text text-lighten-3"></h5>
-      </div>
-    </li>
-    <li>
-      <img src="http://www.wf3.fr/wp-content/uploads/2015/03/DSC_0106.jpg"> <!-- random image -->
-      <div class="caption center-align">
-        <h3 class="teal lighten-2"></h3>
-        <h5 class="light grey-text text-lighten-3"></h5>
-      </div>
-    </li>
-  </ul>
+<div class="container">
+	<div class="slider louil z-depth-1 shadow-effect">
+	    <ul class="slides louil" >
+		<?php foreach ($actus as $act) : ?>
+<li class="row">
+  <img class="col l5" src='<?= $this->assetUrl('/img/'.$act['photo']);?>'>
+  <div class="grey lighten-4 z-depth-1 col l7 slida valign-wrapper">
+  <div class="valign">
+    <h3 class="teal-text text-lighten-2"><?= ucfirst($act['titre']);?></h3>
+    <?php if (strlen($act['description']) > 50): ?>
+
+      <h5 class="light teal-text text-lighten-2"><?=chunk_split($act['description']);?></h5>
+
+      <?php else: ?>
+        <h5 class="light black-text text-lighten-3"><?= $act['description'];?></h5>
+    <?php endif; ?>
+  </div>
 </div>
+</li>
+
+<?php endforeach; ?>
+</ul>
+</div>
+</div>
+
+
 <div id="titre-index" class="row section center container">
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Qui sommes nous?</h3>
   <p class="grey lighten-4 z-depth-1 center-align teal-text text-lighten-2">

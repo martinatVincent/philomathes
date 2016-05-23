@@ -16,17 +16,17 @@
 	<section id="allworks" class="row section container">
 		<?php foreach ($metiers as $met):?>
 				<article class="col s12 m6 l4">
-					<div class="grey lighten-4 z-depth-1">
+					<div class="grey lighten-4 z-depth-1 valign-wrapper ">
 						<div class=" contain-img">
 							<img class="hov-zoom" src="<?= $met['photo']?>" alt="">
-							<div class="text-box">
+							<div class=" valign text-box">
 								<h2 class="lighten-4">Voir les profils</h2>
 								<a class="link-metier" href="metiers/<?= $met['alias']?>/profilsall"></a>
 							</div>
 						</div>
-						<div class="text-works center">
+						<div class="text-works center valign-wrapper">
 							<h6><?= $met['section']?></h6>
-							<p class=""><?= mb_substr($met['description'], 0 , 400 ).'...'?></p>
+							<p class="valign"><?= mb_substr($met['description'], 0 , 400 ).'...'?></p>
 						</div>
 					</div>
 				</article>

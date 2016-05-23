@@ -4,7 +4,7 @@
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer un nouveau metier</h3>
   <div class="row">
 
-    <form method="POST" class="col s12 m12 l6 offset-l3" >
+    <form method="POST" class="col s12 m12 l6 offset-l3" enctype="multipart/form-data" >
       <div class="input-field">
         <i class="material-icons prefix">subtitles</i>
         <label for="section">Intitulé métier</label>
@@ -15,7 +15,7 @@
         <label for="description">description métier</label>
         <textarea name="description" class="materialize-textarea" placeholder="Votre description"></textarea>
       </div>
-      
+
       <div class="input-field">
         <i class="material-icons prefix">youtube_searched_for</i>
         <label id="alias-m" for="alias">alias atelier</label>
