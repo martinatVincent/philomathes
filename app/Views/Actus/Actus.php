@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Nos Actualités</h3>
+	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align  teal-text text-lighten-2">Nos Actualités</h3>
 	<div class="container">
 		<ul class="pagination center">
 			<?php for($i=1; $i<=$totalpages; $i++):?>
@@ -22,8 +22,8 @@
 				<div class="">
 					<div class=" col s12 m2 l2 mcontain-img">
 						<p>Article posté le <?= date('d/m/Y H:i', strtotime($act['date'])); ?></p>
-						<div class="col s12 m10 l10  contain-img">
-							<img class="circle responsive-img" src="<?= $this->assetUrl('img/'.'$act['photo']') ?>" alt="">
+						<div class="col s12 m12 l18  contain-img">
+							<img class="circle responsive-img materialboxed" src="<?= $this->assetUrl('img/'.$act['photo']) ?>" alt="">
 						</div>
 
 						</div>
@@ -32,7 +32,7 @@
       <div class="col s12 m5 l8 grey lighten-4 z-depth-1 text-works center">
         <div class="card-panel teal">
           <span class="white-text">
-						<h6 class="title-post"><?= $act['titre'];?></h6>
+						<h2 class="title-post"><?= $act['titre'];?></h2>
 						<p><?= mb_substr($act['description'], 0 , 400 ); ?>
 							<a href="<?= $this->url('articleDetails', ['id'=> $act['id']]) ?>" class="link"> Lire la suite &raquo; </a>
 						</p>

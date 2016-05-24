@@ -4,7 +4,7 @@
 
 
 <div class="container">
-	<div class="slider louil z-depth-1 shadow-effect">
+	<div class="slider louil z-depth-1 ">
 		<ul class="slides louil" >
 			<?php foreach ($actus as $act) : ?>
 				<li class="row">
@@ -30,14 +30,10 @@
 
 
 <div id="titre-index" class="row section center container">
-	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Qui sommes nous?</h3>
-	<p class="grey lighten-4 z-depth-1 center-align teal-text text-lighten-2">
-		Nous sommes un Organisme de formation et d’actions culturelles a Bordeaux. Une association pour la promotion, la valorisation et la diffusion des sciences, lettres, arts et techniques a Bordeaux et en Aquitaine. Ses principaux moyens d’action sont la formation permanente, et les conférences, débats, rencontres et expositions.
-	</p>
-	<a class="btn btn-5 shadow-effect" id="index-contact" href="<?= $this->url('contactAdmin') ?>">Nous contacter<a/>
-		<h5 class="ad-philo"><br>cliquez sur le bouton ci dessus<br><br>ou a l'Adresse suivante : 66 Rue Abbé de l'Épée,<br> 33000 Bordeaux</h5>
-	</div>
-	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Les métiers proposés</h3>
+
+
+</div>
+	<h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align  teal-text text-lighten-2">Les filières proposées</h3>
 	<div class="container">
 		<ul class="pagination center">
 			<?php for($i=1; $i<=$totalpages; $i++):?>
@@ -55,13 +51,25 @@
 					<div class=" contain-img">
 						<img class="hov-zoom" src="<?= $met['photo']?>" alt="">
 						<div class="text-box">
-							<h2 class="lighten-4">Voir les profils</h2>
-							<a class="link-metier" href="metiers/<?= $met['alias']?>/profilsall"></a>
+							<h2 class="lighten-2"><?= $met['section']?></h2>
+							<a class="link-metier" href=""></a>
 						</div>
 					</div>
 					<div class="text-works center">
-						<h6><?= $met['section']?></h6>
-						<p class=""><?= mb_substr($met['description'], 0 , 400 ).'...'?></p>
+						<!-- Modal Trigger -->
+						<a class="waves-effect waves-light btn modal-trigger" href="#modal1"><?= $met['section']?></a>
+
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal">
+							<div class="modal-content">
+								<h4><?= $met['section']?></h4>
+								<p><?= $met['description']?></p>
+							</div>
+							<div class="modal-footer">
+								<a href="<?= $this->url('formationsEtAteliers') ?>" class=" modal-action modal-close waves-effect waves-green btn-flat link-metier">Nos Formations</a>
+								<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</article>

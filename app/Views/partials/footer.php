@@ -114,9 +114,10 @@
 
 														</div>
 														<div class="modal-footer">
-															<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Lu et approuvé</a>
+															<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fermer</a>
 														</div>
-													</div></li>
+													</div>
+												</li>
 												</ul>
 												<h5 class="pub">WEB-UNITY 2016 &copy;</h5>
 											</div>

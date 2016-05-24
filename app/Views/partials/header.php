@@ -83,7 +83,7 @@
 				</li>
 				<li class="white"><a href="<?= $this->url('metiers') ?>" class="white">Metiers</a></li>
 				<?php if(isset($_SESSION['user']['id'])): ?><li class="white"><a href="<?= $this->url('allprofiles') ?>" class="white">Les profils</a></li><?php endif;?>
-				<?php if(!$w_user) :?><li class="white"><a href="<?= $this->url('connect') ?>" class="white">Se connecter</a></li><?php endif;?>
+				<?php if(!$w_user) :?><li class="white"><a href="<?= $this->url('connect') ?>" class="white">Admin</a></li><?php endif;?>
 				<?php if($w_user) :?><li class="white"><a href="<?= $this->url('deconnect') ?>" class="white">Se deconnecter</a></li><?php endif;?>
 				<?php if($w_user) :?>
 					<li class="white">
@@ -135,7 +135,7 @@
 					<i class="material-icons search">search</i>
 					</a>
 				</li>
-				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Se connecter</a></li><?php endif;?>
+				<?php if(!$w_user) :?><li><a class="btn btn-5"href="<?= $this->url('connect') ?>">Admin</a></li><?php endif;?>
 
 				<?php if($w_user && $w_user['role']!='Admin')  :?>
 					<li>
