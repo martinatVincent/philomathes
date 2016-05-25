@@ -33,7 +33,7 @@
         <div class="card-panel teal">
           <span class="white-text">
 						<h2 class="title-post"><?= $act['titre'];?></h2>
-						<p><?= mb_substr($act['description'], 0 , 400 ); ?>
+						<p class="flow-text"><?= mb_substr($act['description'], 0 , 400 ); ?>
 							<a href="<?= $this->url('articleDetails', ['id'=> $act['id']]) ?>" class="link"> Lire la suite &raquo; </a>
 						</p>
           </span>
