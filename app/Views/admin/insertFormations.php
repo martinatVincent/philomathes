@@ -12,21 +12,13 @@
           <label for="section">Intitulé formation</label>
           <input type="text" name="section" placeholder="section">
         </div>
-        <div class="input-field">
-          <i class="material-icons prefix">receipt</i>
-          <label for="niveau">Niveau</label>
-          <input id="niveau" type="text" name="niveau" placeholder="ex: BEP/CAP/etc...">
-        </div>
+        
         <div class="input-field">
           <i class="material-icons prefix">receipt</i>
           <label for="description">Description</label>
           <textarea name="description" class="materialize-textarea" placeholder="Votre description"></textarea>
         </div>
-        <div class="input-field">
-          <i class="material-icons prefix">receipt</i>
-          <label for="dates">Dates sessions</label>
-          <textarea name="dates" class="materialize-textarea" placeholder="ex: 11/01/2016-18/05/2016"></textarea>
-        </div>
+        
         <div class="input-field">
           <i class="material-icons prefix">youtube_searched_for</i>
           <label id="alias-m" for="alias">alias metier</label>
@@ -41,6 +33,13 @@
             <input class="file-path validate" type="text">
           </div>
         </div>
+
+        <div> 
+          <h5>Inserer un niveau</h5>
+          <i class="fa fa-plus-circle" aria-hidden="true" id="plus" title="Ajouter une session"></i>
+          <i class="fa fa-minus-circle" aria-hidden="true" id="moins" title="Supprimer une session"></i>
+        </div>
+
         <div class="input-field margetop">
           <input type="submit" name="but" value="Envoyer" class="waves-effect waves-light btn">
         </div>

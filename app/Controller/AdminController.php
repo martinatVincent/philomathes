@@ -142,37 +142,160 @@ class AdminController extends Controller
 		$dirUpload = '/assets/img';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
+
+
 		if(!empty($_POST)){
 			// Faire vérification des champs ICI
 			if(empty($_POST['alias'])){
 				$errors[] = 'l alias est vide';
 			}
-			if(empty($_POST['niveau'])){
-				$errors[] = 'le niveau est vide';
-			}
+			
 			if(empty($_POST['description'])){
 				$errors[] = 'la description est vide';
 			}
 			if(empty($_POST['section'])){
 				$errors[] = 'la section est vide';
 			}
-			if(empty($_POST['dates'])){
-				$errors[] = 'il n\'y a pas de session';
-			}
 			if(empty($_POST['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
 
+			if(!empty($_POST['niveau1'])){
+				//pour niveau1
+				if(empty($_POST['niveau1'])){
+					$errors[] = 'le niveau 1 n\'est pas rempli';
+				}
+				if(empty($_POST['date1'])){
+					$errors[] = 'la session 1 n\'est pas rempli';
+				}
+				if(empty($_POST['description1'])){
+					$errors[] = 'la description 1 est vide';
+				}
+				if(empty($_POST['formateur1'])){
+					$errors[] = 'le formateur 1 n\'est pas rempli';
+				}
+				if(empty($_POST['photoFormateur1'])){
+					$errors[] = 'la photo du formateur 1 n\'est pas renseignée';
+				}
+				if(empty($_POST['descriptionFormateur1'])){
+					$errors[] = 'la description du formateur 1 est vide';
+				}
+			}
+			//pour niveau2
+			if(!empty($_POST['niveau2'])){
+				//pour niveau1
+				if(empty($_POST['niveau2'])){
+					$errors[] = 'le niveau 2 n\'est pas rempli';
+				}
+				if(empty($_POST['date2'])){
+					$errors[] = 'la session 2 n\'est pas rempli';
+				}
+				if(empty($_POST['description2'])){
+					$errors[] = 'la description 2 est vide';
+				}
+				if(empty($_POST['formateur2'])){
+					$errors[] = 'le formateur 2 n\'est pas rempli';
+				}
+				if(empty($_POST['photoFormateur2'])){
+					$errors[] = 'la photo du formateur 2 n\'est pas renseignée';
+				}
+				if(empty($_POST['descriptionFormateur2'])){
+					$errors[] = 'la description du formateur 2 est vide';
+				}
+			}
+			//pour niveau3
+			if(!empty($_POST['niveau3'])){
+				//pour niveau1
+				if(empty($_POST['niveau3'])){
+					$errors[] = 'le niveau 3 n\'est pas rempli';
+				}
+				if(empty($_POST['date3'])){
+					$errors[] = 'la session 3 n\'est pas rempli';
+				}
+				if(empty($_POST['description3'])){
+					$errors[] = 'la description 3 est vide';
+				}
+				if(empty($_POST['formateur3'])){
+					$errors[] = 'le formateur 3 n\'est pas rempli';
+				}
+				if(empty($_POST['photoFormateur3'])){
+					$errors[] = 'la photo du formateur 3 n\'est pas renseignée';
+				}
+				if(empty($_POST['descriptionFormateur3'])){
+					$errors[] = 'la description du formateur 3 est vide';
+				}
+			}
 			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
 			if(count($errors) == 0){
-				$FormationsModel->insert([
-					'section' 	  	=> $_POST['section'],
-					'niveau'		=> $_POST['niveau'],
-					'alias' 		=> $_POST['alias'],
-					'description' 	=> $_POST['description'],
-					'dates'		=> $_POST['dates'],
-					'photo' 	    => $_POST['photo'],
-				]);
+
+				//insertion des niveau1 2 et 3 si ils sont inscrit
+				if(!empty($_POST['niveau1']) && empty($_POST['niveau2']) && empty($_POST['niveau3'])){
+					$FormationsModel->insert([
+						'section' 	  	=> $_POST['section'],
+						'alias' 		=> $_POST['alias'],
+						'description' 	=> $_POST['description'],
+						'photo' 	    => $_POST['photo'],	
+
+						'niveau1'		=> $_POST['niveau1'],
+						'date1'			=> $_POST['date1'],
+						'description1'			=> $_POST['description1'],
+						'formateur1'			=> $_POST['formateur1'],
+						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
+					]);
+				}
+				if(!empty($_POST['niveau2']) && !empty($_POST['niveau1']) && empty($_POST['niveau3'])){
+					$FormationsModel->insert([
+						'section' 	  	=> $_POST['section'],
+						'alias' 		=> $_POST['alias'],
+						'description' 	=> $_POST['description'],
+						'photo' 	    => $_POST['photo'],	
+					
+						'niveau1'		=> $_POST['niveau1'],
+						'date1'			=> $_POST['date1'],
+						'description1'			=> $_POST['description1'],
+						'formateur1'			=> $_POST['formateur1'],
+						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
+
+						'niveau2'		=> $_POST['niveau2'],
+						'date2'			=> $_POST['date2'],
+						'description2'			=> $_POST['description2'],
+						'formateur2'			=> $_POST['formateur2'],
+						'photoFormateur2'			=> $_POST['photoFormateur2'],
+						'descriptionFormateur2'			=> $_POST['descriptionFormateur2'],
+					]);
+				}
+				if(!empty($_POST['niveau3']) && !empty($_POST['niveau2']) && !empty($_POST['niveau1'])){
+					$FormationsModel->insert([
+						'section' 	  	=> $_POST['section'],
+						'alias' 		=> $_POST['alias'],
+						'description' 	=> $_POST['description'],
+						'photo' 	    => $_POST['photo'],	
+					
+						'niveau1'		=> $_POST['niveau1'],
+						'date1'			=> $_POST['date1'],
+						'description1'			=> $_POST['description1'],
+						'formateur1'			=> $_POST['formateur1'],
+						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
+
+						'niveau2'		=> $_POST['niveau2'],
+						'date2'			=> $_POST['date2'],
+						'description2'			=> $_POST['description2'],
+						'formateur2'			=> $_POST['formateur2'],
+						'photoFormateur2'			=> $_POST['photoFormateur2'],
+						'descriptionFormateur2'			=> $_POST['descriptionFormateur2'],
+
+						'niveau3'		=> $_POST['niveau3'],
+						'date3'			=> $_POST['date3'],
+						'description3'			=> $_POST['description3'],
+						'formateur3'			=> $_POST['formateur3'],
+						'photoFormateur3'			=> $_POST['photoFormateur3'],
+						'descriptionFormateur3'			=> $_POST['descriptionFormateur3'],
+					]);
+				}
+				
 
 				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 			}

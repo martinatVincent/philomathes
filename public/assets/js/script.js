@@ -198,3 +198,127 @@ $(".button-collapse").sideNav({
       out_duration: 200, // Transition out duration
     });
   });
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//AJOUTE AU CLIC SUR + OU SUPPRIME AU - DES CHAMPS POUR INSERER DES SESSIONS COMME CAP BEP ETC...
+
+$( "#plus").click(function(){
+  
+  if($("div.session1").length && !$("div.session2").length && !$("div.session3").length){
+    $('<div class="session session2"><h5>Session 2</h5><br><div class="input-field"><label for="niveau2">niveau2: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau2"></div><div class="input-field"><label for="date2">session2: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date2"></div><div class="input-field"><label for="description2">description2: </label><input type="text" name="description2"></div><div class="input-field"><label for="formateur2">formateur2: </label><input type="text" placeholder="Dark Vador" name="formateur2"></div><div class="input-field"><div class="btn btn-add"><span class="add">photoFormateur2: </span><input type="file"  id="photo" name="photoFormateur2"></div><div class="file-path-wrapper"><input class="file-path validate" type="text"></div></div><div class="input-field"><label for="descriptionFormateur2">description du formateur2: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur2"></div></div>').insertBefore($('#plus'));
+  }
+  else if($("div.session2").length && $("div.session1").length && !$("div.session3").length){
+    $('<div class="session session3"><h5>Session 3</h5><br><div class="input-field"><label for="niveau3">niveau3: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau3"></div><div class="input-field"><label for="date3">session3: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date3"></div><div class="input-field"><label for="description3">description3: </label><input type="text" name="description3"></div><div class="input-field"><label for="formateur3">formateur3: </label><input type="text" placeholder="Dark Vador" name="formateur3"></div><div class="input-field"><div class="btn btn-add"><span class="add">photoFormateur3: </span><input type="file"  id="photo" name="photoFormateur3"></div><div class="file-path-wrapper"><input class="file-path validate" type="text"></div></div><div class="input-field"><label for="descriptionFormateur3">description du formateur3: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur3"></div></div>').insertBefore($('#plus'));
+  }
+  else if(!$("div.session1").length && !$("div.session2").length && !$("div.session3").length){
+    $('<div class="session session1"><h5>Session 1</h5><br><div class="input-field"><label for="niveau1">niveau1: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau1"></div><div class="input-field"><label for="date1">session1: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date1"></div><div class="input-field"><label for="description1">description1: </label><input type="text" name="description1"></div><div class="input-field"><label for="formateur1">formateur1: </label><input type="text" placeholder="Dark Vador" name="formateur1"></div><div class="input-field"><div class="btn btn-add"><span class="add">photoFormateur1: </span><input type="file"  id="photo" name="photoFormateur1"></div><div class="file-path-wrapper"><input class="file-path validate" type="text"></div></div><div class="input-field"><label for="descriptionFormateur1">description du formateur1: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur1"></div></div>').insertBefore($('#plus'));
+  }
+});
+
+$("#moins").click(function(){
+  var derniereSession = $('div.session:last')
+  derniereSession.remove();
+});
+
+
+
+/*
+LES CHAMPS S'AJOUTANT AU + DANS INSERT FORMATION POUR AJOUTER DES SESSIONS CAP BEP ETC... D'UN MEME METIER
+
+
+<h5>Session 1</h5><br>
+<div class="input-field">
+  <label for="niveau1">niveau1: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau1">
+</div>
+<div class="input-field">
+  <label for="date1">date1: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date1">
+</div>
+<div class="input-field">
+  <label for="description1">description1: </label><input type="text" name="description1">
+</div>
+<div class="input-field">
+  <label for="formateur1">formateur1: </label><input type="text" placeholder="Dark Vador" name="formateur1">
+</div>
+<div class="input-field">
+  <div class="btn btn-add">
+    <span class="add">photoFormateur1: </span>
+    <input type="file"  id="photo" name="photoFormateur1">
+  </div>
+  <div class="file-path-wrapper">
+    <input class="file-path validate" type="text">
+  </div>
+</div>
+<div class="input-field">
+  <label for="descriptionFormateur1">descriptionFormateur1: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur1">
+</div>
+
+
+<h5>Session 2</h5><br>
+<div class="input-field">
+  <label for="niveau2">niveau2: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau2">
+</div>
+<div class="input-field">
+  <label for="date2">date2: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date2">
+</div>
+<div class="input-field">
+  <label for="description2">description2: </label><input type="text" name="description2">
+</div>
+<div class="input-field">
+  <label for="formateur2">formateur2: </label><input type="text" placeholder="Dark Vador" name="formateur2">
+</div>
+<div class="input-field">
+  <div class="btn btn-add">
+    <span class="add">photoFormateur2: </span>
+    <input type="file"  id="photo" name="photoFormateur2">
+  </div>
+  <div class="file-path-wrapper">
+    <input class="file-path validate" type="text">
+  </div>
+</div>
+<div class="input-field">
+  <label for="descriptionFormateur2">descriptionFormateur2: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur2">
+</div>
+
+
+<h5>Session 3</h5><br>
+<div class="input-field">
+  <label for="niveau3">niveau3: </label><input type="text" placeholder="CAP, BEP, etc..." name="niveau3">
+</div>
+<div class="input-field">
+  <label for="date3">date3: </label><input type="text" placeholder="24/01/2017 au 17/05/2017" name="date3">
+</div>
+<div class="input-field">
+  <label for="description3">description3: </label><input type="text" name="description3">
+</div>
+<div class="input-field">
+  <label for="formateur3">formateur3: </label><input type="text" placeholder="Dark Vador" name="formateur3">
+</div>
+
+<div class="input-field">
+  <div class="btn btn-add">
+    <span class="add">photoFormateur3: </span>
+    <input type="file"  id="photo" name="photoFormateur3">
+  </div>
+  <div class="file-path-wrapper">
+    <input class="file-path validate" type="text">
+  </div>
+</div>
+
+<div class="input-field">
+  <label for="descriptionFormateur3">descriptionFormateur3: </label><input type="text" placeholder="jedi du coté obscur ..." name="descriptionFormateur3">
+</div>
+*/
+
+
+

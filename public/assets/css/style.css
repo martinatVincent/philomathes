@@ -971,3 +971,13 @@ section{
 .deconectNav{
 	background-color: orange;
 }
+
+
+#plus{
+	color: green;
+	font-size: 2em;
+}
+#moins{
+	color: red;
+	font-size: 2em;
+}
