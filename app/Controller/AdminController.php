@@ -118,25 +118,21 @@ class AdminController extends Controller
 				if (!empty($_FILES['photo']) && isset($_FILES['photo'])) {
 					$tmpFichier= $_FILES['photo'];
 					move_uploaded_file($tmpFichier,$dirUpload.'/'.$_FILES['photo']);
-					$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];}
-
-
-				elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$_FILES['photo'])){
+					$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];
+				}elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$_FILES['photo'])){
 					$error['file'] = 'Erreur lors de l\'envoi du fichier';
 				}
 				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 			}
 
-		// sinon on affiche les erreurs:
-		else{
-			$params['errors'] = $errors;
+			// sinon on affiche les erreurs:
+			else{
+				$params['errors'] = $errors;
+			}
+			
 		}
-
-
-
 		$this->show('admin/insertMetiers', $params);
 	}
-}
 	public function insertFormations(){
 		$this->allowTo(['Admin']);
 		$login = new AuthentificationModel();

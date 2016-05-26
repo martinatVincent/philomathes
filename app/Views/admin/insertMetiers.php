@@ -1,4 +1,4 @@
-<?php $this->layout('layout',['title' => 'Insertion Metiers']) ?>
+<?php $this->layout('layout', ['title' => 'Insertion Metiers']) ?>
 <?php $this->start('main_content') ?>
 <div class="container center">
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer un nouveau metier</h3>
