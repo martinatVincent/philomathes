@@ -6,7 +6,7 @@ class CommentaireModel extends \W\Model\Model{
 
     public function getProjectCommentaires($id,  $orderBy = "", $limit = null, $offset = null){
 
-        $sql = "SELECT c.*, u.prenom as prenomUser, u.nom as nomUser FROM commentaires c left join users u on c.iduserspost = u.id WHERE c.idprojet = :id";
+        $sql = "SELECT c.*, u.prenom as prenomUser, u.nom as nomUser FROM commentaire c left join users u on c.iduserspost = u.id WHERE c.idprojet = :id";
         if (!empty($orderBy)){
 
             if(!preg_match("#^[a-zA-Z0-9_$]+$#", $orderBy)){

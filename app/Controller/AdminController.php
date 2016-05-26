@@ -86,7 +86,7 @@ class AdminController extends Controller
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
 		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
-		$dirUpload = '/assets/img';
+		$dirUpload = '../public/assets/img';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
 
@@ -112,14 +112,15 @@ class AdminController extends Controller
 					'section' 	  	=> $_POST['section'],
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
-					'photo' 	    => $_FILES['photo'],
+					'photo' 	    => $_FILES['photo']['name'],
 				]);
 				// Move uploaded file retourne un booleen, true en cas de réussite / false en cas d'échec
 				if (!empty($_FILES['photo']) && isset($_FILES['photo'])) {
-					$tmpFichier= $_FILES['photo'];
-					move_uploaded_file($tmpFichier,$dirUpload.'/'.$_FILES['photo']);
-					$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];
-				}elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$_FILES['photo'])){
+					$tmpFichier = $_FILES['photo']['tmp_name'];
+					$namePhoto = $_FILES['photo']['name'];
+					move_uploaded_file($tmpFichier, $dirUpload.'/'.$namePhoto);
+					//$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];
+				}elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$namePhoto)){
 					$error['file'] = 'Erreur lors de l\'envoi du fichier';
 				}
 				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
@@ -141,7 +142,7 @@ class AdminController extends Controller
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
 		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
-		$dirUpload = '/assets/img';
+		$dirUpload = '../public/assets/img';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
 
@@ -151,14 +152,14 @@ class AdminController extends Controller
 			if(empty($_POST['alias'])){
 				$errors[] = 'l alias est vide';
 			}
-			
 			if(empty($_POST['description'])){
 				$errors[] = 'la description est vide';
 			}
 			if(empty($_POST['section'])){
 				$errors[] = 'la section est vide';
 			}
-			if(empty($_POST['photo'])){
+			if(empty($_FILES['photo'])){
+				var_dump($_FILES['photo']['name']);
 				$errors[] = 'veuiller entrer une photo';
 			}
 
@@ -176,12 +177,15 @@ class AdminController extends Controller
 				if(empty($_POST['formateur1'])){
 					$errors[] = 'le formateur 1 n\'est pas rempli';
 				}
-				if(empty($_POST['photoFormateur1'])){
+				if(empty($_FILES['photoFormateur1'])){
 					$errors[] = 'la photo du formateur 1 n\'est pas renseignée';
 				}
 				if(empty($_POST['descriptionFormateur1'])){
 					$errors[] = 'la description du formateur 1 est vide';
 				}
+
+			}else{
+				$errors[] = 'Veuillez entrer au minimum une session';
 			}
 			//pour niveau2
 			if(!empty($_POST['niveau2'])){
@@ -198,7 +202,7 @@ class AdminController extends Controller
 				if(empty($_POST['formateur2'])){
 					$errors[] = 'le formateur 2 n\'est pas rempli';
 				}
-				if(empty($_POST['photoFormateur2'])){
+				if(empty($_FILES['photoFormateur2'])){
 					$errors[] = 'la photo du formateur 2 n\'est pas renseignée';
 				}
 				if(empty($_POST['descriptionFormateur2'])){
@@ -220,12 +224,13 @@ class AdminController extends Controller
 				if(empty($_POST['formateur3'])){
 					$errors[] = 'le formateur 3 n\'est pas rempli';
 				}
-				if(empty($_POST['photoFormateur3'])){
+				if(empty($_FILES['photoFormateur3'])){
 					$errors[] = 'la photo du formateur 3 n\'est pas renseignée';
 				}
 				if(empty($_POST['descriptionFormateur3'])){
 					$errors[] = 'la description du formateur 3 est vide';
 				}
+
 			}
 			// il n'y a pas d'erreurs,  inserer la section a bien rentré en bdd :
 			if(count($errors) == 0){
@@ -236,73 +241,108 @@ class AdminController extends Controller
 						'section' 	  	=> $_POST['section'],
 						'alias' 		=> $_POST['alias'],
 						'description' 	=> $_POST['description'],
-						'photo' 	    => $_POST['photo'],	
+						'photo' 	    => $_FILES['photo']['name'],	
 
 						'niveau1'		=> $_POST['niveau1'],
 						'date1'			=> $_POST['date1'],
 						'description1'			=> $_POST['description1'],
 						'formateur1'			=> $_POST['formateur1'],
-						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'photoFormateur1'			=> $_FILES['photoFormateur1']['name'],
 						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
 					]);
+					$tmpFichier = $_FILES['photo']['tmp_name'];
+					$tmpFichier1 = $_FILES['photoFormateur1']['tmp_name'];
+					$namePhoto = $_FILES['photo']['name'];
+					$namePhoto1 = $_FILES['photoFormateur1']['name'];
+
+					move_uploaded_file($tmpFichier, $dirUpload.'/'.$namePhoto);
+					move_uploaded_file($tmpFichier1, $dirUpload.'/'.$namePhoto1);
+
+					$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 				}
 				if(!empty($_POST['niveau2']) && !empty($_POST['niveau1']) && empty($_POST['niveau3'])){
 					$FormationsModel->insert([
 						'section' 	  	=> $_POST['section'],
 						'alias' 		=> $_POST['alias'],
 						'description' 	=> $_POST['description'],
-						'photo' 	    => $_POST['photo'],	
+						'photo' 	    => $_FILES['photo']['name'],	
 					
 						'niveau1'		=> $_POST['niveau1'],
 						'date1'			=> $_POST['date1'],
 						'description1'			=> $_POST['description1'],
 						'formateur1'			=> $_POST['formateur1'],
-						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'photoFormateur1'			=> $_FILES['photoFormateur1']['name'],
 						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
 
 						'niveau2'		=> $_POST['niveau2'],
 						'date2'			=> $_POST['date2'],
 						'description2'			=> $_POST['description2'],
 						'formateur2'			=> $_POST['formateur2'],
-						'photoFormateur2'			=> $_POST['photoFormateur2'],
+						'photoFormateur2'			=> $_FILES['photoFormateur2']['name'],
 						'descriptionFormateur2'			=> $_POST['descriptionFormateur2'],
 					]);
+					$tmpFichier = $_FILES['photo']['tmp_name'];
+					$tmpFichier1 = $_FILES['photoFormateur1']['tmp_name'];
+					$tmpFichier2 = $_FILES['photoFormateur2']['tmp_name'];
+					$namePhoto = $_FILES['photo']['name'];
+					$namePhoto1 = $_FILES['photoFormateur1']['name'];
+					$namePhoto2 = $_FILES['photoFormateur2']['name'];
+
+					move_uploaded_file($tmpFichier, $dirUpload.'/'.$namePhoto);
+					move_uploaded_file($tmpFichier1, $dirUpload.'/'.$namePhoto1);
+					move_uploaded_file($tmpFichier2, $dirUpload.'/'.$namePhoto2);
+					$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 				}
 				if(!empty($_POST['niveau3']) && !empty($_POST['niveau2']) && !empty($_POST['niveau1'])){
 					$FormationsModel->insert([
 						'section' 	  	=> $_POST['section'],
 						'alias' 		=> $_POST['alias'],
 						'description' 	=> $_POST['description'],
-						'photo' 	    => $_POST['photo'],	
+						'photo' 	    => $_FILES['photo']['name'],	
 					
 						'niveau1'		=> $_POST['niveau1'],
 						'date1'			=> $_POST['date1'],
 						'description1'			=> $_POST['description1'],
 						'formateur1'			=> $_POST['formateur1'],
-						'photoFormateur1'			=> $_POST['photoFormateur1'],
+						'photoFormateur1'			=> $_FILES['photoFormateur1']['name'],
 						'descriptionFormateur1'			=> $_POST['descriptionFormateur1'],
 
 						'niveau2'		=> $_POST['niveau2'],
 						'date2'			=> $_POST['date2'],
 						'description2'			=> $_POST['description2'],
 						'formateur2'			=> $_POST['formateur2'],
-						'photoFormateur2'			=> $_POST['photoFormateur2'],
+						'photoFormateur2'			=> $_FILES['photoFormateur2']['name'],
 						'descriptionFormateur2'			=> $_POST['descriptionFormateur2'],
 
 						'niveau3'		=> $_POST['niveau3'],
 						'date3'			=> $_POST['date3'],
 						'description3'			=> $_POST['description3'],
 						'formateur3'			=> $_POST['formateur3'],
-						'photoFormateur3'			=> $_POST['photoFormateur3'],
+						'photoFormateur3'			=> $_FILES['photoFormateur3']['name'],
 						'descriptionFormateur3'			=> $_POST['descriptionFormateur3'],
 					]);
+					$tmpFichier = $_FILES['photo']['tmp_name'];
+					$tmpFichier1 = $_FILES['photoFormateur1']['tmp_name'];
+					$tmpFichier2 = $_FILES['photoFormateur2']['tmp_name'];
+					$tmpFichier3 = $_FILES['photoFormateur3']['tmp_name'];
+					$namePhoto = $_FILES['photo']['name'];
+					$namePhoto1 = $_FILES['photoFormateur1']['name'];
+					$namePhoto2 = $_FILES['photoFormateur2']['name'];
+					$namePhoto3 = $_FILES['photoFormateur3']['name'];
+
+					move_uploaded_file($tmpFichier, $dirUpload.'/'.$namePhoto);
+					move_uploaded_file($tmpFichier1, $dirUpload.'/'.$namePhoto1);
+					move_uploaded_file($tmpFichier2, $dirUpload.'/'.$namePhoto2);
+					move_uploaded_file($tmpFichier3, $dirUpload.'/'.$namePhoto3);
+					$params['success'] = 'votre nouvelle formation à bien été rajouté !';
 				}
 				
 
-				$params['success'] = 'votre nouvelle formation à bien été rajouté !';
+				
 			}
 			// sinon on affiche les erreurs:
 			else{
+				$errors[] = 'Une erreur s\'est produite';
 				$params['errors'] = $errors;
 			}
 
@@ -338,7 +378,7 @@ class AdminController extends Controller
 			if(empty($_POST['dates'])){
 				$errors[] = 'il n\'y a pas de session';
 			}
-			if(empty($_POST['photo'])){
+			if(empty($_FILES['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
 
@@ -349,7 +389,7 @@ class AdminController extends Controller
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
 					'dates'		=> $_POST['dates'],
-					'photo' 	    => $_POST['photo'],
+					'photo' 	    => $_FILES['photo'],
 				]);
 
 				$params['success'] = 'votre nouvelle atelier à bien été rajouté !';
@@ -390,7 +430,7 @@ class AdminController extends Controller
 			if(empty($_POST['titre'])){
 				$errors[] = 'le titre est vide';
 			}
-			if(empty($_POST['photo'])){
+			if(empty($_FILES['photo'])){
 				$errors[] = 'veuiller entrer une photo';
 			}
 
@@ -399,7 +439,7 @@ class AdminController extends Controller
 				$ActusModel->insert([
 					'titre' 	  	=> $_POST['titre'],
 					'date'				=> date('Y-m-d'),
-					'photo' 	    => $_POST['photo'],
+					'photo' 	    => $_FILES['photo'],
 					'description' => $_POST['description'],
 				]);
 

@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 24 Mai 2016 à 12:29
--- Version du serveur :  10.1.9-MariaDB
--- Version de PHP :  5.6.15
+-- Généré le :  Jeu 26 Mai 2016 à 18:04
+-- Version du serveur :  10.1.10-MariaDB
+-- Version de PHP :  5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -63,24 +63,15 @@ CREATE TABLE `ateliers` (
 
 INSERT INTO `ateliers` (`id`, `section`, `alias`, `photo`, `description`, `dates`) VALUES
 (1, 'Broderie', 'broderie', 'https://s-media-cache-ak0.pinimg.com/236x/00/d3/46/00d346b41ec2537b6263598d61f41ca8.jpg', 'La broderie est un art de d?coration des tissus qui consiste ? ajouter sur un tissu un motif plat ou en relief fait de fils simples, parfois en int?grant des mat?riaux tels que paillettes, perles voire pierres pr?cieuses.\r\n\r\nOn peut la diviser en trois grandes classes :\r\n\r\nmanuelle : faite ? la main, au moyen d''une aiguille ou faite au crochet ;\r\nsemi-m?canique : ? la machine ;\r\n m?canique : industrielle.', ''),
-(16, 'Cartonnage', 'cartonnage', 'http://a404.idata.over-blog.com/3/65/36/70/Cartonnage-et-broderies--.Vos-realisations/DSC04762.JPG', 'La fabrication d''un objet en carton comporte les ?tapes suivantes :\r\n\r\nle trac? du patron comportant les lignes de d?coupe, de pliage et ?ventuellement les marques d''assemblage ;\r\nla sp?cification du carton de structure et de grammage adapt? ? l''objet envisag? et ?ventuellement son impression ;\r\nla d?coupe ? l''aide d''outil de d?coupage ou d''une forme sp?cialis?e (munie de filets coupants) et de marquage des plis (par rainage ou refoulage) ;\r\nle pliage et l''assemblage de l''objet.\r\nDans le cas d''une fabrication en grande s?rie, une machine peut faire le d?coupage, le pliage-collage ou l''agrafage.', ''),
-(17, 'Couture', 'couture', 'http://clubtissus.com/assets/img/bkgr/bg-accessoires-couture.jpg', 'Une couture est l''assemblage de deux ou plusieurs pi?ces ? l''aide de fil ? coudre, soit manuellement avec une aiguille, soit en utilisant une machine ? coudre ou une surjeteuse. La couture est utilis?e dans la fabrication des v?tements, du linge de maison (draps, mouchoirs, etc.), des ?l?ments de d?coration (nappes, rideaux, tentures, etc.), des chaussures, de la maroquinerie (bagages, sacs, etc.), etc. La premi?re utilisation connue du mot daterait du xive si?cle1.', ''),
-(18, 'Menuiserie', 'menuiserie', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kairouan_Great_Mosque_doors.jpg/240px-Kairouan_Great_Mosque_doors.jpg', 'La menuiserie, art et m?tier, est l''ensemble des techniques mises en ?uvre pour construire des ouvrages de taille relativement petite (par opposition aux ouvrages de charpente) par la mise en forme et l''assemblage de menues pi?ces de bois1. Ces assemblages se font de largeur, de longueur ou en angle.', ''),
-(19, 'Réfection de Sièges', 'refectionsieges', 'http://www.espacesorano.com/wp-content/uploads/2015/03/Photo-R%C3%A9fection-de-si%C3%A8ges-DR-Recadrage-site-990x460.jpg', 'Ici, vous apprendrez ? restaurer vous-m?mes vos si?ges, selon la m?thode traditionnelle : pose de sangles, fixation des ressorts, mise en place du crin, des toiles de soutien, et, pour finir, du tissu de votre choix agr?ment? ou non de clous dor?s, de galons? Chaque ?l?ve travaille avec ses propres outils, soit sur un si?ge ancien ? restaurer (tabouret, chaise ou fauteuil de tous styles), soit sur une structure en bois brut.', ''),
-(20, 'Plomberie', 'plomberie', 'http://www.allo-plombier-paris2.fr/uploads/446/externe/originals/installation-evier.jpg', 'La plomberie est une sp?cialit? de l''ing?nieur en M?canique appliqu?e au b?timent et du plombier sp?cialis?, regroupant l''ensemble des techniques utilis?es pour faire circuler des fluides (liquide ou gaz) ? l''aide de tuyaux, tubes, vannes, robinets, soupapes, pompes aux diff?rents points d''usage d''une installation. Le mot a pour origine le terme latin pour plomb (plumbum) et provient de l''utilisation de ce m?tal mall?able pour r?aliser les installations de plomberie au cours des si?cles pr?c?dents.', ''),
-(21, 'Stylisme', 'stylisme', 'http://uploads.cecilemancion.com/2010/10/collec_hiver08-09_1.jpg', 'Le stylisme est un m?tier de la mode consistant ? imaginer et dessiner des mod?les destin?s au pr?t-?-porter. La personne exer?ant ce m?tier est appel?e un ou une styliste. Le styliste est aussi appel? fashion designer designer de mode ou encore dessinateur(trice) de mode, car le mot ? styliste ? en anglais d?signe un coiffeur.', ''),
-(22, 'Webforce3', 'webforce', 'http://www.wf3.fr/wp-content/uploads/2015/03/DSC_00271.jpg', 'La Web@cad?mie, c''est un peu la seconde chance pour des 18-25 ans qui ont claqu? la porte de l''?cole avant le bac. \r\nBien s?r, il faut aimer l''informatique et les nouvelles technos, car l''?cole forme, en deux ans, des d?veloppeurs web en partenariat avec Epitech, une autre ?cole d''informatique dont elle partage le campus et les enseignants. ', ''),
-(23, 'Electricité', 'electricite', 'http://www.ville-levallois.fr/wp-content/uploads/2014/09/electricit%C3%A9.jpg', 'L??lectricit? est l''effet du d?placement de particules charg?es, ? l?int?rieur d''un ? conducteur ?, sous l''effet d''une diff?rence de potentiel aux extr?mit?s de ce conducteur. Ce ph?nom?ne physique est pr?sent dans de nombreux contextes : l''?lectricit? constitue aussi bien l''influx nerveux des ?tres vivants que les ?clairs d''un orage. Elle est largement utilis?e dans les soci?t?s d?velopp?es pour transporter de grandes quantit?s d''?nergie facilement utilisable.', ''),
-(24, 'aaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', '3057ba8.jpg', 'aaaaaaaaaaaaaaaaaaaa', ''),
-(25, 'aaaaaaaaa', 'zzzzzzzzzzzzzzzzzzzzz', 'prostituee-maison-close_802617.jpg', 'aaaaaaaaaaaaaaaa', 'zzzzzzzzzzzzzzzz');
+(16, 'Cartonnage', 'cartonnage', 'http://a404.idata.over-blog.com/3/65/36/70/Cartonnage-et-broderies--.Vos-realisations/DSC04762.JPG', 'La fabrication d''un objet en carton comporte les ?tapes suivantes :\r\n\r\nle trac? du patron comportant les lignes de d?coupe, de pliage et ?ventuellement les marques d''assemblage ;\r\nla sp?cification du carton de structure et de grammage adapt? ? l''objet envisag? et ?ventuellement son impression ;\r\nla d?coupe ? l''aide d''outil de d?coupage ou d''une forme sp?cialis?e (munie de filets coupants) et de marquage des plis (par rainage ou refoulage) ;\r\nle pliage et l''assemblage de l''objet.\r\nDans le cas d''une fabrication en grande s?rie, une machine peut faire le d?coupage, le pliage-collage ou l''agrafage.', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaires`
+-- Structure de la table `commentaire`
 --
 
-CREATE TABLE `commentaires` (
+CREATE TABLE `commentaire` (
   `id` int(11) NOT NULL,
   `iduserspost` int(11) NOT NULL,
   `idprojet` int(11) NOT NULL,
@@ -90,10 +81,10 @@ CREATE TABLE `commentaires` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `commentaires`
+-- Contenu de la table `commentaire`
 --
 
-INSERT INTO `commentaires` (`id`, `iduserspost`, `idprojet`, `titre`, `comments`, `date`) VALUES
+INSERT INTO `commentaire` (`id`, `iduserspost`, `idprojet`, `titre`, `comments`, `date`) VALUES
 (1, 1, 2, 'je teste de nouveau', 'hislhboùùrwobipvo^qùwshmyvsi lw:m\r\n', '2016-02-24 11:10:06'),
 (2, 1, 2, 'je teste de nouveau', 'hislhboùùrwobipvo^qùwshmyvsi lw:m\r\n', '2016-02-24 11:20:23'),
 (3, 1, 2, '3eme commentaire', '3 eme texte du 3eme commentaire', '2016-02-24 11:24:20'),
@@ -117,10 +108,10 @@ CREATE TABLE `formations` (
   `date1` varchar(255) NOT NULL,
   `niveau1` varchar(255) NOT NULL,
   `description1` varchar(255) NOT NULL,
-  `Formateur1` varchar(255) NOT NULL,
-  `photoformateur1` varchar(255) NOT NULL,
+  `formateur1` varchar(255) NOT NULL,
+  `photoFormateur1` varchar(255) NOT NULL,
   `nom1` varchar(255) NOT NULL,
-  `descriptionformateur1` varchar(255) NOT NULL,
+  `descriptionFormateur1` varchar(255) NOT NULL,
   `date2` varchar(255) NOT NULL,
   `niveau2` varchar(255) NOT NULL,
   `description2` text NOT NULL,
@@ -138,8 +129,7 @@ CREATE TABLE `formations` (
 -- Contenu de la table `formations`
 --
 
-INSERT INTO `formations` (`id`, `section`, `alias`, `photo`, `description`, `dates`, `date1`, `niveau1`, `description1`, `Formateur1`, `photoformateur1`, `nom1`, `descriptionformateur1`, `date2`, `niveau2`, `description2`, `formateur2`, `photoFormateur2`, `descriptionFormateur2`, `date3`, `description3`, `niveau3`, `photoFormateur3`, `descriptionFormateur3`) VALUES
-(1, 'Broderie', 'broderie', 'https://s-media-cache-ak0.pinimg.com/236x/00/d3/46/00d346b41ec2537b6263598d61f41ca8.jpg', 'La broderie est un art de d?coration des tissus qui consiste ? ajouter sur un tissu un motif plat ou en relief fait de fils simples, parfois en int?grant des mat?riaux tels que paillettes, perles voire pierres pr?cieuses.\r\n\r\nOn peut la diviser en trois grandes classes :\r\n\r\nmanuelle : faite ? la main, au moyen d''une aiguille ou faite au crochet ;\r\nsemi-m?canique : ? la machine ;\r\n m?canique : industrielle.', '', '', 'cap', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+INSERT INTO `formations` (`id`, `section`, `alias`, `photo`, `description`, `dates`, `date1`, `niveau1`, `description1`, `formateur1`, `photoFormateur1`, `nom1`, `descriptionFormateur1`, `date2`, `niveau2`, `description2`, `formateur2`, `photoFormateur2`, `descriptionFormateur2`, `date3`, `description3`, `niveau3`, `photoFormateur3`, `descriptionFormateur3`) VALUES
 (18, 'Menuiserie', 'menuiserie', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kairouan_Great_Mosque_doors.jpg/240px-Kairouan_Great_Mosque_doors.jpg', 'La menuiserie, art et m?tier, est l''ensemble des techniques mises en ?uvre pour construire des ouvrages de taille relativement petite (par opposition aux ouvrages de charpente) par la mise en forme et l''assemblage de menues pi?ces de bois1. Ces assemblages se font de largeur, de longueur ou en angle.', '', '', 'bp', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (20, 'Plomberie', 'plomberie', 'http://www.allo-plombier-paris2.fr/uploads/446/externe/originals/installation-evier.jpg', 'La plomberie est une sp?cialit? de l''ing?nieur en M?canique appliqu?e au b?timent et du plombier sp?cialis?, regroupant l''ensemble des techniques utilis?es pour faire circuler des fluides (liquide ou gaz) ? l''aide de tuyaux, tubes, vannes, robinets, soupapes, pompes aux diff?rents points d''usage d''une installation. Le mot a pour origine le terme latin pour plomb (plumbum) et provient de l''utilisation de ce m?tal mall?able pour r?aliser les installations de plomberie au cours des si?cles pr?c?dents.', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (22, 'Webforce3', 'webforce', 'http://www.wf3.fr/wp-content/uploads/2015/03/DSC_00271.jpg', 'La Web@cad?mie, c''est un peu la seconde chance pour des 18-25 ans qui ont claqu? la porte de l''?cole avant le bac. \r\nBien s?r, il faut aimer l''informatique et les nouvelles technos, car l''?cole forme, en deux ans, des d?veloppeurs web en partenariat avec Epitech, une autre ?cole d''informatique dont elle partage le campus et les enseignants. ', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
@@ -172,9 +162,7 @@ INSERT INTO `metiers` (`id`, `section`, `alias`, `photo`, `description`) VALUES
 (20, 'Plomberie', 'plomberie', 'http://www.allo-plombier-paris2.fr/uploads/446/externe/originals/installation-evier.jpg', 'La plomberie est une sp?cialit? de l''ing?nieur en M?canique appliqu?e au b?timent et du plombier sp?cialis?, regroupant l''ensemble des techniques utilis?es pour faire circuler des fluides (liquide ou gaz) ? l''aide de tuyaux, tubes, vannes, robinets, soupapes, pompes aux diff?rents points d''usage d''une installation. Le mot a pour origine le terme latin pour plomb (plumbum) et provient de l''utilisation de ce m?tal mall?able pour r?aliser les installations de plomberie au cours des si?cles pr?c?dents.'),
 (21, 'Stylisme', 'stylisme', 'http://uploads.cecilemancion.com/2010/10/collec_hiver08-09_1.jpg', 'Le stylisme est un m?tier de la mode consistant ? imaginer et dessiner des mod?les destin?s au pr?t-?-porter. La personne exer?ant ce m?tier est appel?e un ou une styliste. Le styliste est aussi appel? fashion designer designer de mode ou encore dessinateur(trice) de mode, car le mot ? styliste ? en anglais d?signe un coiffeur.'),
 (22, 'Webforce3', 'webforce', 'http://www.wf3.fr/wp-content/uploads/2015/03/DSC_00271.jpg', 'La Web@cad?mie, c''est un peu la seconde chance pour des 18-25 ans qui ont claqu? la porte de l''?cole avant le bac. \r\nBien s?r, il faut aimer l''informatique et les nouvelles technos, car l''?cole forme, en deux ans, des d?veloppeurs web en partenariat avec Epitech, une autre ?cole d''informatique dont elle partage le campus et les enseignants. '),
-(23, 'Electricité', 'electricite', 'http://www.ville-levallois.fr/wp-content/uploads/2014/09/electricit%C3%A9.jpg', 'L??lectricit? est l''effet du d?placement de particules charg?es, ? l?int?rieur d''un ? conducteur ?, sous l''effet d''une diff?rence de potentiel aux extr?mit?s de ce conducteur. Ce ph?nom?ne physique est pr?sent dans de nombreux contextes : l''?lectricit? constitue aussi bien l''influx nerveux des ?tres vivants que les ?clairs d''un orage. Elle est largement utilis?e dans les soci?t?s d?velopp?es pour transporter de grandes quantit?s d''?nergie facilement utilisable.'),
-(24, 'vincent test 10', 'test10', '', 'tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt'),
-(25, 'vincent test 1', 'nnnnnnn', '', 'nnnnnn');
+(23, 'Electricité', 'electricite', 'http://www.ville-levallois.fr/wp-content/uploads/2014/09/electricit%C3%A9.jpg', 'L??lectricit? est l''effet du d?placement de particules charg?es, ? l?int?rieur d''un ? conducteur ?, sous l''effet d''une diff?rence de potentiel aux extr?mit?s de ce conducteur. Ce ph?nom?ne physique est pr?sent dans de nombreux contextes : l''?lectricit? constitue aussi bien l''influx nerveux des ?tres vivants que les ?clairs d''un orage. Elle est largement utilis?e dans les soci?t?s d?velopp?es pour transporter de grandes quantit?s d''?nergie facilement utilisable.');
 
 -- --------------------------------------------------------
 
@@ -246,11 +234,8 @@ INSERT INTO `projets` (`id`, `project_title`, `description`, `date_publish`, `id
 (9, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-17', 9),
 (10, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-17', 9),
 (12, 'Lorem ipsum dolor sit amet,', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2016-02-26', 12),
-(13, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2016-02-26', 4),
 (14, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-17', 10),
-(15, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-18', 5),
 (16, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-21', 9),
-(17, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-17', 5),
 (18, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\n', '2016-02-25', 9);
 
 -- --------------------------------------------------------
@@ -281,9 +266,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `prenom`, `nom`, `password`, `confirmedToken`, `dateConfirmedToken`, `email`, `description`, `role`, `linkedin`, `photo`, `date_update`, `id_metier`) VALUES
 (1, 'fatou', 'diaby', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'fatou.chance@gmail.com', 'La vie est belle les oiseaux chante,le feu ça brûle et l''eau ça mouille !!', 'Admin', '', 'avatar/1fatou.jpg', '2016-02-16', 1),
-(3, 'Martha', 'Tronc', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'martha.tronc@email.com', 'Bonjour je m''appelle Martha, j''aime la broderie !', 'user', '', 'avatar/3symptomes-menopause1.jpg', '2016-02-16', 1),
-(4, 'Luc', 'Vamplin', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@luc.vamplin.com', 'Bonjour je m''appelle Luc!Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.\r\n', 'user', '', 'avatar/luc.png', '2016-02-17', 18),
-(5, 'Stephane', 'Archais', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@stephane.archais.com', 'Bonjour je m''appelle Stephane.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua.', 'user', '', 'avatar/stephane.jpg', '2016-02-20', 16),
 (6, 'Martin', 'Bonnaventure', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@martin.bonnaventure.com', 'Bonjour je m''appelle Vincent.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua.', 'user', '', 'avatar/martin.jpg', '2016-02-18', 19),
 (7, 'Jean', 'Dutronc', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@jean.dutronc.com', 'Bonjour je m''appelle Vincent.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua.', 'user', '', 'avatar/jean.jpg', '2016-02-16', 22),
 (8, 'Veronica', 'Parrat', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@veronica.parrat.com', 'Bonjour je m''appelle Vincent. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua.', 'user', '', 'avatar/veronica.jpg', '2016-02-16', 21),
@@ -295,13 +277,7 @@ INSERT INTO `users` (`id`, `prenom`, `nom`, `password`, `confirmedToken`, `dateC
 (14, 'Amanda', 'Charret', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@amanda.charret.com', 'Bonjour et Bienvenue sur mon profil!Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ', 'user', '', 'avatar/amanda.jpg', '2016-02-17', 21),
 (15, 'Sonia', 'Marchais', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@sonia.marchais.com', 'Bonjour et Bienvenue sur mon profil!Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ', 'user', '', 'avatar/sonia.png', '2016-02-19', 1),
 (16, 'Kevin', 'Goncalves', '$2y$10$dzKBPRYascgFbbD2TMsdNeIlDN4INRpHsC3iiapf2AmNlUeKpuuCe', NULL, NULL, 'philo@kevin.goncalves.com', 'Bonjour et Bienvenue sur mon profil!Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ', 'user', '', 'avatar/kevin.jpg', '2016-02-23', 18),
-(19, 'guillaume', 'lanfranchi', '$2y$10$nA.ypBxYKq9aNG3e9rUNLexs6gImjrLgxFRE6NAHXVU8AXY7aGH2e', NULL, NULL, 'lanfranchi.guillaume@yahoo.com', '', 'Admin', '', '', '0000-00-00', 0),
-(20, 'guillaume', 'lanfranchi', '$2y$10$Y4gqhDSPq/cbXz6ezSpBhuT6h4z9/dg/JmqPdc7dZzb9D6/JprGoS', NULL, NULL, 'lanfranchi.guillaume@yahoo.com', '', 'Admin', '', '', '0000-00-00', 0),
-(21, 'guillaume', 'der', '$2y$10$kmzOYcyEhSOrFMTlxP1TUugbd8sGaJdjB8pf.PO2Y/EkXwR1LtW3G', NULL, NULL, 'lanfranchi.guillaume@yahoo.com', '', 'user', '', '', '0000-00-00', 1),
-(22, 'def', 'der', '$2y$10$R8rOdFP0c/ekYdqkfXuzU.UrbO2Vh5rKZW2vUPfBbCkGRjAb9ntnu', NULL, NULL, 'lanfranchi.guillaume@yahoo.com', '', 'user', '', '', '0000-00-00', 1),
-(23, 'ANUS', 'ANUS', '$2y$10$l53IbB7.6hRokr/Rll.7u.77rwgXoAbMcsFkETbMmBsaKXgu9/UF6', NULL, NULL, 'anus@anus.com', '', 'user', '', '', '0000-00-00', 1),
-(24, 'trytrytry', 'yrtytr', '$2y$10$YnHhAMqXlXcF7RIdLFfiAOcxPBnYAOGyCTWtB1KtnVxhD4FFR2Z/m', NULL, NULL, 'fatou.chance@gmail.com', '', 'user', '', '', '0000-00-00', 16),
-(25, 'bite a cul', 'conard de merde', '$2y$10$RVY/RxzyFMgF/jmk/taScetvOlAJk5rcCU8JNYI5l30XjMp5KRapK', NULL, NULL, 'fatoula.chance@gmail.com', '', 'user', '', '', '0000-00-00', 16);
+(19, 'guillaume', 'lanfranchi', '$2y$10$nA.ypBxYKq9aNG3e9rUNLexs6gImjrLgxFRE6NAHXVU8AXY7aGH2e', NULL, NULL, 'lanfranchi.guillaume@yahoo.com', '', 'Admin', '', '', '0000-00-00', 0);
 
 --
 -- Index pour les tables exportées
@@ -320,9 +296,9 @@ ALTER TABLE `ateliers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `commentaires`
+-- Index pour la table `commentaire`
 --
-ALTER TABLE `commentaires`
+ALTER TABLE `commentaire`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -368,22 +344,22 @@ ALTER TABLE `actus`
 -- AUTO_INCREMENT pour la table `ateliers`
 --
 ALTER TABLE `ateliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- AUTO_INCREMENT pour la table `commentaires`
+-- AUTO_INCREMENT pour la table `commentaire`
 --
-ALTER TABLE `commentaires`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+ALTER TABLE `commentaire`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT pour la table `formations`
 --
 ALTER TABLE `formations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT pour la table `metiers`
 --
 ALTER TABLE `metiers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT pour la table `photos`
 --
@@ -398,7 +374,7 @@ ALTER TABLE `projets`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

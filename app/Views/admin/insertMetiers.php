@@ -21,6 +21,8 @@
         <label id="alias-m" for="alias">alias atelier</label>
         <input id="alias" type="text" name="alias" placeholder="alias section">
       </div>
+
+      
       <div class="file-field input-field">
         <div class="btn btn-add">
           <span class="add">photo </span>

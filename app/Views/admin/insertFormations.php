@@ -4,7 +4,7 @@
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer une nouvelle formation</h3>
   <div class="row">
 
-    <form method="POST" class="col s12 m12 l6 offset-l3" >
+    <form method="POST" class="col s12 m12 l6 offset-l3" enctype="multipart/form-data">
       <div class="input-field ">
 
         <div class="input-field">
@@ -24,15 +24,17 @@
           <label id="alias-m" for="alias">alias metier</label>
           <input id="alias" type="text" name="alias" placeholder="alias section">
         </div>
+
+        
         <div class="file-field input-field">
-          <div class="btn btn-add">
-            <span class="add">photo </span>
-            <input type="file"  id="photo" name="photo">
-          </div>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
-          </div>
+        <div class="btn btn-add">
+          <span class="add">photo </span>
+          <input type="file"  id="photo" name="photo">
         </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
 
         <div> 
           <h5>Inserer un niveau</h5>
