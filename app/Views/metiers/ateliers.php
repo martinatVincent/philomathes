@@ -18,7 +18,7 @@
         <article class="col s12 m6 l4">
           <div class="grey lighten-4 z-depth-1">
             <div class=" contain-img">
-              <img class="hov-zoom" src="<?= $met['photo']?>" alt="">
+              <img class="hov-zoom" src="<?= $this->assetUrl('img/'.$met['photo']) ?>" alt="">
               <div class="text-box">
                 <h2 class="lighten-4">Voir l'atelier</h2>
                 <a class="link-metier" href="<?= $this->url('profilatelier', ['id' => $met['id']]) ?>"></a>

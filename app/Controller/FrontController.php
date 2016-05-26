@@ -10,7 +10,8 @@ use \W\Model\Model;
 use \Model\RechercheModel;
 use \Model\MetiersModel;
 use \Model\ActusModel;
-
+use \Model\AteliersModel;
+use \Model\FormationsModel;
 
 class FrontController extends Controller
 {
@@ -57,6 +58,9 @@ class FrontController extends Controller
 		$this->show('front/index', $params);
 	}
 
+
+
+
 	public function ajaxmetiers(){
 
 		$metiersdb = new MetiersModel;
@@ -66,6 +70,28 @@ class FrontController extends Controller
 		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
 		$this->showJson($metiers);
 	}
+
+	public function ajaxateliers(){
+
+		$metiersdb = new AteliersModel;
+		$num = 6;
+		$page = $_GET['page'];
+		$start = ($page-1) * $num;
+		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+		$this->showJson($metiers);
+	}
+	public function ajaxformations(){
+
+		$metiersdb = new FormationsModel;
+		$num = 6;
+		$page = $_GET['page'];
+		$start = ($page-1) * $num;
+		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+		$this->showJson($metiers);
+	}
+
+
+
 	public function conditions()
 	{
 		$this->show('front/conditions');

@@ -361,7 +361,7 @@ class AdminController extends Controller
 		$params = array(); // Les paramètres qu'on envoi a la vue, on utilisera les clés du tableau précédé par un $ pour les utiliser dans la vue
 		// Faire vérification des champs ICI
 		$maxSize = 3024 * 3000; // 1Ko * 1000 = 1Mo
-		$dirUpload = '/assets/img/';
+		$dirUpload = '../public/assets/img';
 		$mimeTypeAllowed = array('image/jpg', 'image/jpeg', 'image/png');
 
 		if(!empty($_POST)){
@@ -389,9 +389,16 @@ class AdminController extends Controller
 					'alias' 		=> $_POST['alias'],
 					'description' 	=> $_POST['description'],
 					'dates'		=> $_POST['dates'],
-					'photo' 	    => $_FILES['photo'],
+					'photo' 	    => $_FILES['photo']['name'],
 				]);
-
+				if (!empty($_FILES['photo']) && isset($_FILES['photo'])) {
+					$tmpFichier = $_FILES['photo']['tmp_name'];
+					$namePhoto = $_FILES['photo']['name'];
+					move_uploaded_file($tmpFichier, $dirUpload.'/'.$namePhoto);
+					//$link_avatar = 'http://'.$_SERVER['HTTP_HOST'].$dirUpload.'/'.$_FILES['photo'];
+				}elseif(!move_uploaded_file($tmpFichier , $dirUpload.'/'.$namePhoto)){
+					$error['file'] = 'Erreur lors de l\'envoi du fichier';
+				}
 				$params['success'] = 'votre nouvelle atelier à bien été rajouté !';
 			}
 			// sinon on affiche les erreurs:

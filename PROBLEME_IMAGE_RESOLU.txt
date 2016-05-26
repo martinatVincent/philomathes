@@ -1,0 +1,7 @@
+<img class="hov-zoom" src="<?= $this->assetUrl('img/'.$met['photo']) ?>" alt="">
+
+
+tout va maintenant dans img, a voir pour les profils
+Au dessus=>permet d'aller les chercher.
+
+(avant vous ne les metiez pas dans assets/img)

@@ -4,7 +4,7 @@
   <h3 id="marge-titre" class="container grey lighten-4 z-depth-1 center-align shadow-effect teal-text text-lighten-2">Inserer un nouvel atelier</h3>
   <div class="row">
 
-      <form method="POST" class="col s12 m12 l6 offset-l3" >
+      <form method="POST" class="col s12 m12 l6 offset-l3" enctype="multipart/form-data">
         <div class="input-field ">
 
         </div>

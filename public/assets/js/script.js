@@ -182,6 +182,95 @@ $(".button-collapse").sideNav({
   });
 
 
+
+
+
+  //Pagination Atelier et formation
+  $(function(){
+    $('.paginations.paginat').click(function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+      $('.pagination li').removeClass('active');
+      $(this).parent().removeClass('waves-effect').addClass('active');
+      var data = {
+        page: href
+      }
+      $.ajax({
+        url: pageUrl,
+        data: data,
+        success: function(reponse) {
+          $('#allworks').empty();
+          for (m in reponse) {
+            var htmlMetier = $('<article>')
+            .addClass('col')
+            .addClass('l4')
+            .addClass('m6')
+            .addClass('s12')
+            .append($('<div>')
+            .addClass('grey')
+            .addClass('lighten-4')
+            .addClass('z-depth-1')
+            .append($('<div>')
+            .addClass('contain-img')
+            .append($('<img>').attr('src', reponse[m].photo).addClass('hov-zoom'))
+            .append($('<div>').addClass('text-box')
+            .append($('<h2>').text('Voir les profils').addClass('lighten-4'))
+            .append($('<a>').attr('href', '/philomathes/public/metiers/'+reponse[m].alias+'/profilsall').addClass('link-metier'))))
+            .append($('<div>').addClass('text-works')
+            .addClass('center')
+            .append($('<h6>').text(reponse[m].section))
+            .append($('<p>').text(reponse[m].description))))
+            $('#allworks').append(htmlMetier);
+          }
+        }
+      })
+    });
+  })
+
+$(function(){
+    $('.paginations.paginform').click(function(e){
+      e.preventDefault();
+      var href = $(this).attr('href');
+      $('.pagination li').removeClass('active');
+      $(this).parent().removeClass('waves-effect').addClass('active');
+      var data = {
+        page: href
+      }
+      $.ajax({
+        url: pageUrl,
+        data: data,
+        success: function(reponse) {
+          $('#allworks').empty();
+          for (m in reponse) {
+            var htmlMetier = $('<article>')
+            .addClass('col')
+            .addClass('l4')
+            .addClass('m6')
+            .addClass('s12')
+            .append($('<div>')
+            .addClass('grey')
+            .addClass('lighten-4')
+            .addClass('z-depth-1')
+            .append($('<div>')
+            .addClass('contain-img')
+            .append($('<img>').attr('src', reponse[m].photo).addClass('hov-zoom'))
+            .append($('<div>').addClass('text-box')
+            .append($('<h2>').text('Voir les profils').addClass('lighten-4'))
+            .append($('<a>').attr('href', '/philomathes/public/metiers/'+reponse[m].alias+'/profilsall').addClass('link-metier'))))
+            .append($('<div>').addClass('text-works')
+            .addClass('center')
+            .append($('<h6>').text(reponse[m].section))
+            .append($('<p>').text(reponse[m].description))))
+            $('#allworks').append(htmlMetier);
+          }
+        }
+      })
+    });
+  })
+
+
+
+
   // Modals de matérialize
 
   // pour ouvrir le modal:

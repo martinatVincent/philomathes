@@ -1,0 +1,5 @@
+Ils fons appellent en class (dans view) a paginmet, puis au json, appelle ajaxmetier
+=> Il faut creer ajaxForm et ajaxAt dans le frontController ou metierController
+
++ CREER ROUTES amenant a vues utilisant ajaxFormation et ajaxAtelier dans son controller
++marquer cette route dans le script.js
