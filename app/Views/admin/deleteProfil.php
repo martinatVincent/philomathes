@@ -17,7 +17,7 @@
           <input type="text" name="email2" placeholder="Votre email">
         </div>
           <div class="input-field">
-            <input type="submit" name="but" value="SUPPRIMER MON COMPTE" class="teal waves-effect waves-light btn">
+            <input type="submit" name="but" value="SUPPRIMER LE COMPTE" class="teal waves-effect waves-light btn">
           </div>
           <br>
           <div class="center">

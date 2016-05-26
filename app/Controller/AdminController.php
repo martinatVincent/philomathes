@@ -27,6 +27,11 @@ class AdminController extends Controller
 		// Faire vérification des champs ICI
 		if(!empty($_POST)){
 			// Faire vérification des champs ICI
+			//existence de l'email dans la bdd? 
+			$emailExist = $userModel->emailExists($_POST['email']);
+			if($emailExist = true){
+				$errors[] = 'L\'adresse mail d\'un de nos utilisateurs est la même';
+			}
 			if(empty($_POST['nom'])){
 				$errors[] = 'le nom est vide';
 			}
@@ -53,12 +58,13 @@ class AdminController extends Controller
 					'role' 	=> 'user',
 					'password' 	=> password_hash($_POST['pass'],PASSWORD_DEFAULT)
 				]);
+				$params['success'] = 'votre nouveau profil à bien été enregistré !';
 			}
 			// sinon on affiche les erreurs:
 			else{
 				$params['errors'] = $errors;
 			}
-			$params['success'] = 'votre nouveau profil à bien été enregistré !';
+			
 		}
 		$params['section'] = $toutmetiers;
 		$this->show('admin/insertprofil', $params);
@@ -622,11 +628,10 @@ class AdminController extends Controller
 				if(count($errors) == 0){
 					//trouver l'id de l'utilisateur par son adresse mail
 					$id = $delete->findIdByMail($_POST['email2']);
-					var_dump($id);
 					if(true){
-						$allinfos = $delete->deleteAll($id['id']);
-						var_dump($allinfos);
-						if($allinfos == true){
+						$deleteProjets = $delete->deleteProjetsByUser($id['id']);
+						$deleteUser = $delete->deleteUserById($id['id']);
+						if($deleteProjets == true){
 							$params['success'] = 'Le profil à bien été supprimé !';
 						}else{
 							$errors[] = 'Le profil n\'a pas été supprimé';
