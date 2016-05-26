@@ -981,3 +981,10 @@ section{
 	color: red;
 	font-size: 2em;
 }
+.mailUser{
+	color: grey;
+	text-decoration: none;
+	display: block;
+	font-style: italic;
+	font-size: 0.8em;
+}

@@ -14,7 +14,11 @@
       </div>
       <div class="col m6 l6">
         <h4><?= $profil['prenom'].' '.$profil['nom'] ?></h4>
+        <?php if($w_user['role']=='Admin'):?>
+        	<span class='mailUser'><?= $profil['email'] ?></span>
+		<?php endif;?> 
         <h5><?= $section?></h5>
+
         <p class=""><?= $profil['description']?></p>
       </div>
       <div class="col m6 l6">
