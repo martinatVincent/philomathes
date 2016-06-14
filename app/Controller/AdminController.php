@@ -31,6 +31,7 @@ class AdminController extends Controller
 			$emailExist = $userModel->emailExists($_POST['email']);
 			if($emailExist = true){
 				$errors[] = 'L\'adresse mail d\'un de nos utilisateurs est la même';
+				$errors[] = $emailExist;
 			}
 			if(empty($_POST['nom'])){
 				$errors[] = 'le nom est vide';
@@ -446,7 +447,7 @@ class AdminController extends Controller
 				$ActusModel->insert([
 					'titre' 	  	=> $_POST['titre'],
 					'date'				=> date('Y-m-d'),
-					'photo' 	    => $_FILES['photo'],
+					'photo' 	    => $_FILES['photo']['name'],
 					'description' => $_POST['description'],
 				]);
 

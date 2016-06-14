@@ -5,17 +5,18 @@
 <section id="description" class="container section">
 
 <div class="row">
-  <div id="slideprojet" class="col s12 m12 l12 slider">
+  <div  class="col s12 m12 l12 ">
+  <h4 class="titreArticle"><?= $actus['titre'] ?></h4>
     <div class="center">
-          <img src="<?= $this->assetUrl($actus['photo'])?>" alt="essai">
+          <img class="imageArticle" src="<?= $this->assetUrl('img/'.$actus['photo'])?>" alt="image actualité">
           <div class="caption center-align">
-            <h3><?= $actus['date']?></h3>
+            <p><?= $actus['date']?></p>
             </div>
   </div>
   </section>
 <section id="description" class="container section">
-    <div id="titleprojet" class="col s12 m12 l4">
-      <h4><?= $actus['titre'] ?></h4>
+    <div class="col s12 m12 l4 grey lighten-4 z-depth-1 center-align descriptionArticle">
+      
       <p><?= $actus['description']?></p>
     </div>
 </div>

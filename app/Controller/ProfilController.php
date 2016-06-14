@@ -348,10 +348,6 @@ class ProfilController extends Controller
               $errors[]='Votre description ne doit pas est vide';
             }
 
-            if (empty($_POST['linkedin'])) {
-              $errors[]='Votre linkedin ne doit pas est vide';
-            }
-
             // il n'y a pas d'erreurs,  inserer l'utilisateur a bien rentré en bdd :
             if(count($errors) == 0){
 

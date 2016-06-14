@@ -21,7 +21,7 @@
 				<?php endif; ?>
 				<div class="text-box ">
 					<h2>Visiter le Profil</h2>
-					<a class="link-metier" href="/philo_unity/public/profil/profiluser/<?= $resuse['id']?>"></a>
+					<a class="link-metier" href="<?=$this->url('profiluser',['id' => $resuse['id']]	) ?>"></a>
 				</div>
 			</div>
 			<div class="text-works center">

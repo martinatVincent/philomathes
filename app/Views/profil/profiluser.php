@@ -17,7 +17,7 @@
         <?php if($w_user['role']=='Admin'):?>
         	<span class='mailUser'><?= $profil['email'] ?></span>
 		<?php endif;?> 
-        <h5><?= $section?></h5>
+        <!-- <h5><?= $section?></h5> -->
 
         <p class=""><?= $profil['description']?></p>
       </div>
@@ -27,7 +27,7 @@
       </div>
   </section>
 
-  <!-- 2ème ligne titre -->
+  <!-- 2ème ligne titre 
 	<div id="gallery-title" class="container row">
 		<div class="col s12 m12 l12">
 			<span class="col s12 m12 l12 center-align grey lighten-4 z-depth-1 center-align teal-text text-lighten-2">Gallerie des projets de <h4><?= $profil['prenom'].' '.$profil['nom'] ?></h4></span>
@@ -35,10 +35,10 @@
 	</div>
 
 
-	<!-- 3ème ligne gallerie -->
+	
 
 		<div id="cards-folio" class="container row isotope">
-			<div id="col l12 cards-global-content"> <!-- div qui contient toutes mes cartes de projets -->
+			<div id="col l12 cards-global-content"> <!-- div qui contient toutes mes cartes de projets 
 
 			<?php foreach($projets as $projet):?>
 				<div class=" col m6 l4 ">
@@ -64,7 +64,7 @@
 					</div>
 				</div>
 			<?php endforeach;?>
-		</div>
+		</div> -->
 
 
 

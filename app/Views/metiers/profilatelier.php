@@ -8,7 +8,7 @@
       <img class="responsive-img" src="<?= $this->assetUrl('avatar/generic-avatar.png') ?>"/>
     <?php endif; ?>
     <?php if (!empty($atelier['photo'])): ?>
-      <img class="responsive-img" src="<?= $this->assetUrl($atelier['photo']) ?>"/>
+      <img class="responsive-img" src="<?= $this->assetUrl('img/'.$atelier['photo']) ?>"/>
     <?php endif; ?>
   </div>
   <div class="col m6 l6">

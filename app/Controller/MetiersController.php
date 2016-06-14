@@ -36,6 +36,32 @@ class MetiersController extends Controller
     $this->showJson($metiers);
   }
 
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+
+  public function ajaxateliers(){
+
+    $metiersdb = new AteliersModel; //va chercher atelier
+    $num = 6;
+    $page = $_GET['page'];
+    $start = ($page-1) * $num;
+    $metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+    $this->showJson($metiers);
+  }
+  public function ajaxformations(){
+
+    $metiersdb = new FormationsModel; //va chercher formation
+    $num = 6;
+    $page = $_GET['page'];
+    $start = ($page-1) * $num;
+    $metiers = $metiersdb->findAll('section', "ASC", $num, $start);
+    $this->showJson($metiers);
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
   public function formationsEtAteliers(){
     $this->show('metiers/formationsEtAteliers');
   }
@@ -75,6 +101,8 @@ class MetiersController extends Controller
 
     $this->show('metiers/ateliers', $params);
   }
+
+  
 
   public function profilformation($id){
     $profilFormation = new FormationsModel(); //aller chercher la formation par son id

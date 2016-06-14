@@ -185,6 +185,10 @@ $(".button-collapse").sideNav({
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   //Pagination Atelier et formation
   $(function(){
     $('.paginations.paginat').click(function(e){
@@ -227,6 +231,9 @@ $(".button-collapse").sideNav({
     });
   })
 
+
+
+
 $(function(){
     $('.paginations.paginform').click(function(e){
       e.preventDefault();
@@ -268,7 +275,7 @@ $(function(){
     });
   })
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
   // Modals de matérialize

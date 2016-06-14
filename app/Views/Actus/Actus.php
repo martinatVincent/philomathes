@@ -16,32 +16,31 @@
 		// Si $articles contient notre contenu, on affiche le tout
 		if(isset($actus) && !empty($actus)):
 	?>
+
+
 	<section class="row section container">
 		<?php foreach ($actus as $act):?>
-			<article class="col s12 m6 l12">
+			<article class="col s12 m12 l12  center articleActus card-panel z-depth-1 teal">
 				<div class="">
-					<div class=" col s12 m2 l2 mcontain-img">
+					<div class=" col s12 m12 l4 mcontain-img">
+						<div >
+							<img class="imageActus" src="<?= $this->assetUrl('img/'.$act['photo']) ?>" alt="">
+						</div>
 						<p>Article posté le <?= date('d/m/Y H:i', strtotime($act['date'])); ?></p>
-						<div class="col s12 m12 l18  contain-img">
-							<img class="circle responsive-img materialboxed" src="<?= $this->assetUrl('img/'.$act['photo']) ?>" alt="">
-						</div>
-
-						</div>
 					</div>
+				</div>
 					<div class="row ">
-      <div class="col s12 m5 l8 grey lighten-4 z-depth-1 text-works center">
-        <div class="card-panel teal">
-          <span class="white-text">
-						<h2 class="title-post"><?= $act['titre'];?></h2>
-						<p class="flow-text"><?= mb_substr($act['description'], 0 , 400 ); ?>
-							<a href="<?= $this->url('articleDetails', ['id'=> $act['id']]) ?>" class="link"> Lire la suite &raquo; </a>
-						</p>
-          </span>
-        </div>
-      </div>
-    </div>
-
-
+				    <div class="col s12 m12 l8 ">
+				        <div class="card-panel ">
+					        <span class="black-text">
+								<h2 class="title-post"><?= $act['titre'];?></h2>
+								<p class="flow-text"><?= mb_substr($act['description'], 0 , 400 ); ?>
+									<a href="<?= $this->url('articleDetails', ['id'=> $act['id']]) ?>" class="link"> Lire la suite &raquo; </a>
+								</p>
+					        </span>
+				        </div>
+				    </div>
+			    </div>
 			</article>
 
 		<?php endforeach;?>

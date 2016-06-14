@@ -16,7 +16,7 @@
                 <i class="material-icons prefix">email</i>
                 <input type="text" name="email" placeholder="Son email">
             </div>
-            <div class="input-field row">
+            <!-- <div class="input-field row">
               <select class="col l11 m11 s11 offset-l1 offset-m1 offset-s1" name="section">
                 <i class="material-icons prefix">verified_user</i>
                 <option value="" disabled selected>Chosir la section</option>
@@ -24,7 +24,7 @@
                   <option value="<?=$sect['id']?>"><?= $sect['section']?></option>
                 <?php endforeach; ?>
               </select>
-            </div>
+            </div> -->
             <div class="input-field">
                 <i class="material-icons prefix">verified_user</i>
                 <input type="password" name="pass" placeholder="Saisissez votre mot de passe">

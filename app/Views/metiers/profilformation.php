@@ -8,7 +8,7 @@
       <img class="responsive-img" src="<?= $this->assetUrl('avatar/generic-avatar.png') ?>"/>
     <?php endif; ?>
     <?php if (!empty($formation['photo'])): ?>
-      <img class="responsive-img" src="<?= $this->assetUrl($formation['photo']) ?>"/>
+      <img class="responsive-img" src="<?= $this->assetUrl('img/'.$formation['photo']) ?>"/>
     <?php endif; ?>
   </div>
   <div class="col m6 l6">
@@ -30,7 +30,7 @@
       <div class="modal-content">
         <h4><?= $formation['niveau1']?></h4>
         <p><?= $formation['description1']?></p>
-        <img src="<?= $formation['photoFormateur1']?>" alt="" />
+        <img src="<?= $this->assetUrl('img/'.$formation['photoFormateur1']) ?>" alt="" />
         <h3><?= $formation['formateur1']?></h3>
         <p><?= $formation['descriptionFormateur1']?></p>
         <p><?= $formation['date1']?></p>
@@ -50,7 +50,7 @@
       <div class="modal-content">
         <h4><?= $formation['niveau2']?></h4>
         <p><?= $formation['description2']?></p>
-        <img src="<?=$formation['photoFormateur2']?>" alt="" />
+        <img src="<?= $this->assetUrl('img/'.$formation['photoFormateur2']) ?>" alt="" />
         <h3><?= $formation['formateur2']?></h3>
         <p><?= $formation['descriptionFormateur2']?></p>
         <p><?= $formation['date2']?></p>
@@ -70,7 +70,7 @@
       <div class="modal-content">
         <h4><?= $formation['niveau3']?></h4>
         <p><?= $formation['description3']?></p>
-        <img src="<?= $formation['photoFormateur3']?>" alt="" />
+        <img src="<?= $this->assetUrl('img/'.$formation['photoFormateur3']) ?>" alt="" />
         <h3><?= $formation['formateur3']?></h3>
         <p><?= $formation['descriptionFormateur3']?></p>
         <p><?= $formation['date3']?></p>

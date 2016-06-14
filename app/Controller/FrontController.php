@@ -60,20 +60,12 @@ class FrontController extends Controller
 
 
 
-
-	public function ajaxmetiers(){
-
-		$metiersdb = new MetiersModel;
-		$num = 6;
-		$page = $_GET['page'];
-		$start = ($page-1) * $num;
-		$metiers = $metiersdb->findAll('section', "ASC", $num, $start);
-		$this->showJson($metiers);
-	}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 
 	public function ajaxateliers(){
 
-		$metiersdb = new AteliersModel;
+		$metiersdb = new AteliersModel; //va chercher atelier
 		$num = 6;
 		$page = $_GET['page'];
 		$start = ($page-1) * $num;
@@ -82,7 +74,7 @@ class FrontController extends Controller
 	}
 	public function ajaxformations(){
 
-		$metiersdb = new FormationsModel;
+		$metiersdb = new FormationsModel; //va chercher formation
 		$num = 6;
 		$page = $_GET['page'];
 		$start = ($page-1) * $num;
@@ -90,7 +82,7 @@ class FrontController extends Controller
 		$this->showJson($metiers);
 	}
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	public function conditions()
 	{
@@ -185,7 +177,7 @@ class FrontController extends Controller
 					}
 				}
 				if($_GET['valeur'] == 'metier'){
-					$resultatmetier = $recherche->rechercheMetier($search);
+					$resultatmetier = $recherche->rechercheFormations($search);
 					if(empty($resultatmetier)){
 						$params['error'] = 'Votre recherche n\'a donné aucun résultat';
 					}

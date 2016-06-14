@@ -7,7 +7,7 @@
     <ul class="pagination center">
       <?php for($i=1; $i<=$totalpages; $i++):?>
         <li class="waves-effect btn">
-          <a class="paginations paginmet white-text" href="<?= $i?>"><?= $i?></a>
+          <a class="paginations paginat white-text" href="<?= $i?>"><?= $i?></a>
         </li>
       <?php endfor;?>
     </ul>

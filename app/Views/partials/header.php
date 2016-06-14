@@ -6,24 +6,26 @@
 				<img class="left" src="<?= $this->assetUrl('img/LogoPhilomathique.png') ?>"></img>
 			</a>
 			<ul id="dropdown1" class="dropdown-content">
-				<li><a href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a></li>
+				<?php if($w_user['role'] !='Admin'):?>
+					<li><a href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a></li>
+				<?php endif;?>
 			  	<li class="divider"></li>
 			  	<li><a href="<?= $this->url('updateProfil') ?>">Mes infos</a></li>
 			  	<li class="deconectNav" ><a href="<?= $this->url('deconnect') ?>">Se deconnecter</a></li>
 			  	<?php if($w_user['role']=='Admin'):?>
-	  				<li><a href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a></li>
+	  				<li><a href="<?= $this->url('insertProfil') ?>">Entrer un nouveau philomathe</a></li>
 	  			<?php endif;?>
 	  			<?php if($w_user['role']=='Admin'):?>
 	  				<li><a href="<?= $this->url('insertSection') ?>">Entrer une nouvelle formation/atelier</a></li>
 	  			<?php endif;?>
-				<?php if($w_user['role']=='Admin'):?>
+				<!--<?php if($w_user['role']=='Admin'):?>
 	  				<li><a href="<?= $this->url('insertMetiers') ?>">Entrer un nouveau metier</a></li>
-	  			<?php endif;?>
+	  			<?php endif;?>-->
 				<?php if($w_user['role']=='Admin'):?>
 	  				<li><a href="<?= $this->url('insertActus') ?>">Entrer une nouvelle actualité</a></li>
 	  			<?php endif;?>
 				<?php if($w_user['role']=='Admin'):?>
-	  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un profil</a></li>
+	  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un philomathe</a></li>
 	  			<?php endif;?>
 	  			<?php if($w_user['role']!='Admin'):?>
 	  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
@@ -81,8 +83,8 @@
 						</li>
 					</ul>
 				</li>
-				<li class="white"><a href="<?= $this->url('metiers') ?>" class="white">Metiers</a></li>
-				<?php if(isset($_SESSION['user']['id'])): ?><li class="white"><a href="<?= $this->url('allprofiles') ?>" class="white">Les profils</a></li><?php endif;?>
+				<li class="white"><a href="<?= $this->url('formationsEtAteliers') ?>" class="white">Nos formations</a></li>
+				<?php if(isset($_SESSION['user']['id'])): ?><li class="white"><a href="<?= $this->url('allprofiles') ?>" class="white">Les philomathes</a></li><?php endif;?>
 				<?php if(!$w_user) :?><li class="white"><a href="<?= $this->url('connect') ?>" class="white">Admin</a></li><?php endif;?>
 				<?php if($w_user) :?><li class="white"><a href="<?= $this->url('deconnect') ?>" class="white">Se deconnecter</a></li><?php endif;?>
 				<?php if($w_user) :?>
@@ -102,18 +104,19 @@
 								<?php endif;?>
 								</div>
 								<form class="center collapsible-body" action="<?= $this->url('recherche') ?>" method="GET" >
-									<a class="center" href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a>
+									<?php if($w_user['role'] !='Admin'):?>
+										<a class="center" href="<?= $this->url('profiluser', ['id' => $_SESSION['user']['id'] ])?>">Mon profil</a>
+									<?php endif;?>
 								  	<a class="black-text" href="<?= $this->url('updateProfil') ?>">Mes infos</a>
 								  	<a class="btn btn-5" href="<?= $this->url('deconnect') ?>">Se deconnecter</a>
 								  	<?php if($w_user['role']=='Admin'):?>
-						  			<a class="black-text" href="<?= $this->url('insertProfil') ?>">Entrer un nouvel utilisateur</a>
+						  			<a class="black-text" href="<?= $this->url('insertProfil') ?>">Entrer un nouveau philomathe</a>
 						  			<?php endif;?>
 						  			<?php if($w_user['role']=='Admin'):?>
-						  			<a class="black-text" href="<?= $this->url('insertSection') ?>">Entrer une nouvelle section</a>
-
+						  				<a class="black-text" href="<?= $this->url('insertSection') ?>">Entrer une nouvelle formation/atelier</a>
 			  						<?php endif;?>
 			  						<?php if($w_user['role']=='Admin'):?>
-						  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un profil</a></li>
+						  				<li><a href="<?= $this->url('deleteProfil')?>">Supprimer un philomathe</a></li>
 						  			<?php endif;?>
 						  			<?php if($w_user['role']!='Admin'):?>
 						  				<li><a href="<?= $this->url('deleteaccount', ['id' => $_SESSION['user']['id'] ])?>">Supprimer mon profil</a></li>
@@ -126,7 +129,7 @@
 			</ul>
 			<ul id="nav-resp" class=" col s12 m6 l4 right hide-on-med-and-down">
 
-				<li><a class="btn btn-5"href="<?= $this->url('actus') ?>">Actualités</a></li>
+				<li><a class="btn btn-5" href="<?= $this->url('actus') ?>">Actualités</a></li>
 				<li><a class="btn btn-5" href="<?= $this->url('formationsEtAteliers') ?>">Formation</a></li>
 				<li><a class="btn btn-5" href="<?= $this->url('allprofiles') ?>">Les Philomathes</a></li>
 				<li><a class="btn btn-5" href="#">Philo connect</a></li>

@@ -914,53 +914,59 @@ ul.slides{
     /* margin-left: 40%; */
     font-size: 1em;
 }
-#boutton-ateliers{
-	width: 40%;
-	height: 200px;
-	background-color: #e57373;
+
+/* #boutton-ateliers{
+	width: 48%;
+	height: 400px;
+	background: url('../img/ateliers.jpg');
 	color: white;
 	display: inline-block;
 	text-align: center;
-	padding-top: 6.5% !important;
-}
-#boutton-formations{
-	width: 40%;
-	height: 200px;
-	background-color:#2196f3 ;
+	padding-top: 17% !important;
+	background-size: cover;
+	position: relative;
+} */
+/* #boutton-formations{
+	width: 48%;
+	height: 400px;
+	background: url('../img/formations.jpg');
 	color: white;
 	display: inline-block;
 	text-align: center;
-	padding-top: 6.5% !important;
+	padding-top: 17% !important;
 	box-sizing: border-box;
-	margin-right: 17%;
-}
-#boutton-formations a, #boutton-ateliers a{
+	background-size: cover;
+	position: relative;
+} */
+/* #boutton-formations a, #boutton-ateliers a{
 	color: white;
 	font-size: 3em;
-
-}
-.boutton_formations_ateliers{
+	position: absolute;
+	left: 0;
+	top: 0;
+} */
+/* .boutton_formations_ateliers{
 	padding: 6.5%;
-}
+} */
 
-#boutton-formations:hover{
+/* #boutton-formations:hover{
 	transform: scale(1.05);
 	border: 1px solid;
 	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
 	outline-color: rgba(255, 255, 255, 0);
 	outline-offset: 15px;
 	text-shadow: 1px 1px 2px #427388;
-		transition-duration: 0.7s;
-}
-#boutton-ateliers:hover{
+	transition-duration: 0.7s;
+} */
+/* #boutton-ateliers:hover{
 	transform: scale(1.05);
 	border: 1px solid;
-  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-  outline-color: rgba(255, 255, 255, 0);
-  outline-offset: 15px;
-  text-shadow: 1px 1px 2px #427388;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+	outline-color: rgba(255, 255, 255, 0);
+	outline-offset: 15px;
+	text-shadow: 1px 1px 2px #427388;
 	transition-duration: 0.7s;
-}
+} */
 
 .fondAdmin{
 	background-color: #C4D0CC;
@@ -969,7 +975,7 @@ section{
 	padding: 3.5% 0;
 }
 .deconectNav{
-	background-color: orange;
+	background-color: #C4D0CC;
 }
 
 
@@ -987,4 +993,41 @@ section{
 	display: block;
 	font-style: italic;
 	font-size: 0.8em;
+}
+
+.imageArticle{
+	width: 50%;
+}
+
+.imageActus{
+	width: 100%;
+	padding-top: 2%;
+}
+
+
+.titreArticle{
+	text-align: center;
+}
+
+.articleActus{
+	margin-bottom: 5%;
+	padding: 10%;
+}
+.descriptionArticle{
+	padding: 3%;
+}
+
+.formationButton, .atelierButton{
+	display: inline-block;
+	min-height: 400px; 
+}
+.formationButton{
+	margin-bottom: 5%;
+}
+.formationButton h2, .atelierButton h2{
+	color: #009688 ;
+	font-size: 50px;
+}
+.formationButton img, .atelierButton img{
+	width: 100%;
 }

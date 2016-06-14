@@ -7,7 +7,7 @@
 		['GET', '/conditions', 'Front#conditions', 'conditions'],
 		['GET|POST', '/contactadmin', 'Front#contactAdmin', 'contactAdmin'],
 		['GET|POST', '/recherche', 'Front#recherche', 'recherche'],
-
+ 
 
 		////////////////////////////PROFIL////////////////////////////////////////////////////////
 		['GET', '/profil/profiluser/[:id]', 'Profil#profilUser', 'profiluser'],
@@ -31,11 +31,14 @@
 		['GET|POST', '/actus/articleDetails/[:id]', 'actus#articleDetails', 'articleDetails'],
 
 		////////////////////////////METIERS////////////////////////////////////////////////////////
-		['GET', '/metiers', 'metiers#metiers', 'metiers'],
+		['GET', '/metiers', 'metiers#metiers', 'metiers'],//A ENLEVER ???
 		['GET', '/metiers/formationsEtAteliers', 'metiers#formationsEtAteliers', 'formationsEtAteliers'], //page au 2 bouton
 
 		['GET', '/metiers/formations','metiers#formations', 'formations'], //page formations
 		['GET', '/metiers/ateliers','metiers#ateliers', 'ateliers'], //page ateliers
+		//pagination
+		['GET|POST', '/formationspage', 'metiers#ajaxformations', 'paginationsformations'],
+
 		['GET', '/metiers/profilformation/[:id]', 'metiers#profilformation', 'profilformation'], // va chercher par l'id formation le profil d'elle
 		['GET', '/metiers/profilatelier/[:id]', 'metiers#profilatelier', 'profilatelier'], // va chercher par l'id atelier le profil d'elle
 

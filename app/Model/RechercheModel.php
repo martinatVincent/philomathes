@@ -18,9 +18,9 @@ class RechercheModel extends \W\Model\UsersModel {
 
     	}
     }
-    public function rechercheMetier($search){
+    public function rechercheFormations($search){
 
-		$sql = ("SELECT * FROM metiers WHERE section  LIKE :search OR description LIKE :search COLLATE utf8_bin");
+		$sql = ("SELECT * FROM formations WHERE section  LIKE :search OR description LIKE :search COLLATE utf8_bin");
         $sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":search", '%'.$search.'%');
 		if($sth->execute()){
